@@ -26,33 +26,30 @@ const Footer = () => {
             Dedicated to excellence in precious metals certification, offering trusted hallmarking services with precision and integrity.
           </p>
           <div className="mt-12 flex gap-5">
-            <a
-              target="_blank"
-              href="#"
+            <button
+              type="button"
               className="hover:text-green-400"
             >
               <FaFacebook size={32} className="bg-orange" />
-            </a>
-            <a
-              target="_blank"
-              href="#"
+            </button>
+            <button
+              type="button"
               className="hover:text-green-400"
             >
               <FaInstagram size={32} />
-            </a>
-            <a
-              target="_blank"
-              href="#"
+            </button>
+            <button
+              type="button"
               className="hover:text-green-400"
             >
               <IoLogoLinkedin size={32} />
-            </a>
-            <a href="#" className="hover:text-green-400">
+            </button>
+            <button type="button" className="hover:text-green-400">
               <FaTwitter size={32} />
-            </a>
-            <a href="#" className="hover:text-green-400">
+            </button>
+            <button type="button" className="hover:text-green-400">
               <FaYoutube size={32} />
-            </a>
+            </button>
           </div>
         </div>
         {/* Center: Quick Links and Utility Pages */}

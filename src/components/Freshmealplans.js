@@ -1,5 +1,5 @@
 import React from "react";
-import Subscription_Plans from "./Subscription_Plans";
+import SubscriptionPlans from "./SubscriptionPlans";
 import FreshMealPlansHeading from "./FreshMealPlansHeading";
 
 
@@ -14,7 +14,7 @@ const Freshmealplans = () => {
           </p>
         </div>
       </div>
-      <Subscription_Plans />
+      <SubscriptionPlans />
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Location_pic from "./Location_pic";
+import LocationPic from "./LocationPic";
 
 const cityLocations = {
   "New Delhi": [
@@ -176,7 +176,7 @@ const Location = () => {
           </div>
         </div>
 
-        <Location_pic />
+        <LocationPic />
       </div>
       {/* Right: Locations or Mascot */}
       <div

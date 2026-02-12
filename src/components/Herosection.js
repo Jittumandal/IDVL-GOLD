@@ -56,11 +56,12 @@ export default function HeroSection() {
               className="rounded1xl w-full px-6 py-3 focus:outline-none sm:w-80"
               type="text"
             />
-            <a href="#"
+            <button
+              type="button"
               className="rounded1xl flex h-[55px] w-full items-center justify-center bg-orange-400 px-8 font-semibold text-white transition hover:bg-orange-500 sm:w-auto"
             >
               GET NOW
-            </a>
+            </button>
           </form>
         </div>
 

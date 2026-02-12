@@ -23,17 +23,6 @@ export default function Navigation() {
     return () => document.removeEventListener("mousedown", handleOutside);
   }, []);
 
-  const handleMouseEnter = () => {
-    if (closeTimeoutRef.current) {
-      clearTimeout(closeTimeoutRef.current);
-      closeTimeoutRef.current = null;
-    }
-    setMegaOpen(true);
-  };
-  const handleMouseLeave = () => {
-    closeTimeoutRef.current = setTimeout(() => setMegaOpen(false), 150);
-  };
-
   const handleServicesEnter = () => {
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current);

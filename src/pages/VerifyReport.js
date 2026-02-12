@@ -21,7 +21,7 @@ export default function VerifyReport() {
                         <button className="rounded bg-gray-700 px-4 py-2 text-white">Verify</button>
                     </div>
                     <div className="mt-4">
-                        <button className="rounded border border-gray-300 bg-white px-4 py-2 text-sm">SKU Lookup</button>
+                        <button type="button" className="rounded border border-gray-300 bg-white px-4 py-2 text-sm">SKU Lookup</button>
                     </div>
                 </div>
 
@@ -31,8 +31,8 @@ export default function VerifyReport() {
                         <div className="h-28 w-28 rounded border border-gray-300 bg-gray-50 p-4 text-center">
                             <MdDocumentScanner size={48} className="mx-auto text-gray-400" />
                         </div>
-                        <button className="rounded border border-gray-700 px-4 py-2">Request Camera Permissions</button>
-                        <a href="#" className="text-sm text-gray-600 underline">Scan an Image File</a>
+                        <button type="button" className="rounded border border-gray-700 px-4 py-2">Request Camera Permissions</button>
+                        <button type="button" className="text-sm text-gray-600 underline bg-transparent border-0 cursor-pointer p-0">Scan an Image File</button>
                     </div>
                 </div>
             </div>

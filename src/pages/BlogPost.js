@@ -103,7 +103,7 @@ export default function BlogPost() {
           </button>
           <h1 className="text-4xl font-extrabold">{post.title}</h1>
           <div className="mt-3 flex items-center gap-3">
-            <img src={post.avatar} className="h-10 w-10 rounded-full" />
+            <img src={post.avatar} alt={post.author} className="h-10 w-10 rounded-full" />
             <div>
               <div>{post.author}</div>
               <div className="text-xs">{post.date}</div>
@@ -162,7 +162,7 @@ export default function BlogPost() {
         <aside className="space-y-6">
           <div className="bg-white p-6 shadow rounded">
             <div className="flex gap-4 items-center">
-              <img src={post.avatar} className="h-16 w-16 rounded-full" />
+              <img src={post.avatar} alt={post.author} className="h-16 w-16 rounded-full" />
               <div>
                 <div className="font-semibold">{post.author}</div>
                 <div className="text-xs">{post.date}</div>
@@ -187,7 +187,7 @@ export default function BlogPost() {
               const s = slugify(p.title + "-" + i);
               return (
                 <Link key={i} to={`/blog/post/${encodeURIComponent(s)}`} className="flex gap-3 mb-3">
-                  <img src={p.img} className="h-12 w-12 rounded object-cover" />
+                  <img src={p.img} alt={p.title} className="h-12 w-12 rounded object-cover" />
                   <div className="text-sm">{p.title}</div>
                 </Link>
               );

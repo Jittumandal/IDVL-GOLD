@@ -16,7 +16,7 @@ const FreshMealPlansHeading = () => {
     }, 3000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [words.length]);
 
   return (
     <div className="mobile_view_plan relative mb-4 flex w-full items-center justify-center overflow-hidden">
