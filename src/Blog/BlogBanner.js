@@ -14,12 +14,12 @@ export default function BlogBanner() {
         <p className="LetGreeNox animate__animated animate__backInDown mb-10 text-center text-lg text-white md:text-left">
           To deliver trusted diamond and jewelry certification services that promote transparency, authenticity, and integrity across the global gem and jewelry industry.
         </p>
-        <Link
+        {/* <Link
           to="/blog"
           className="animate__animated animate__backInUp mt-4 rounded bg-white px-8 py-4 text-lg font-semibold text-black shadow hover:bg-gray-100"
         >
           Chat with us
-        </Link>
+        </Link> */}
       </div>
       {/* Right: Image */}
       <div className="flex w-full items-center justify-center bg-[#181818] md:w-1/2">
