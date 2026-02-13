@@ -12,6 +12,7 @@ const Termservice = lazyWithRetry(() => import("../pages/Termservice"));
 const Termsconditions = lazyWithRetry(() => import("../pages/Termsconditions"));
 const Privacypolicy = lazyWithRetry(() => import("../pages/Privacypolicy"));
 const VerifyReport = lazyWithRetry(() => import("../pages/VerifyReport"));
+const Reports = lazyWithRetry(() => import("../pages/Reports"));
 
 export default function AppRoutes() {
   return (
@@ -28,6 +29,7 @@ export default function AppRoutes() {
           <Route path="/termsconditions" element={<Termsconditions />} />
           <Route path="/privacypolicy" element={<Privacypolicy />} />
           <Route path="/verify-report" element={<VerifyReport />} />
+          <Route path="/reports" element={<Reports />} />
         </Routes>
       </Suspense>
     </ErrorBoundary>

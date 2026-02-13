@@ -40,6 +40,14 @@ header {
     border-radius: 3px;
 }
 
+.minhscreen {
+    height: 550px;
+}
+
+.minhscreen2 {
+    height: 450px;
+}
+
 .weekly {
     background-color: #FBF8EF;
     border-radius: 50%;

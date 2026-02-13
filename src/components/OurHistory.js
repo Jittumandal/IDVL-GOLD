@@ -42,6 +42,7 @@ const blocks = [
 
 const OurHistory = () => {
   return (
+
     <section className="our-history w-full">
       <div className="mx-auto max-w-8xl">
         <div className="grid grid-cols-1 gap-0 md:grid-cols-2">
