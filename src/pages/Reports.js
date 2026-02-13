@@ -69,8 +69,6 @@ const Reports = () => {
                         </div>
                     </div>
                 </div>
-
-
             </div>
             <section className="our-history w-full">
                 <div className="mx-auto max-w-8xl">
