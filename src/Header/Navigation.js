@@ -35,7 +35,6 @@ export default function Navigation() {
   };
 
   const isActive = (path) => location.pathname === path;
-  const isMenuActive = () => megaOpen || location.pathname.startsWith("/menu");
 
   return (
     <header className="fixed left-0 top-0 z-50 w-full border-b border-gray-200 bg-white shadow-sm">
