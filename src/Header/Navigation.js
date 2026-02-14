@@ -60,25 +60,8 @@ export default function Navigation() {
               >
                 Diamond 4Cs
               </Link>
-              {/* <Link
-                to="/menu"
-                className={`${isActive("/menu") || isMenuActive()
-                  ? "border-b-2 border-green-500 pb-1 text-green-500"
-                  : "text-gray-700 hover:text-green-500"
-                  }`}
-              >
-                Menu
-              </Link> */}
 
-              {/* <Link
-                to="/subscription"
-                className={`${isActive("/subscription")
-                  ? "border-b-2 border-green-500 pb-1 text-green-500"
-                  : "text-gray-700 hover:text-green-500"
-                  }`}
-              >
-                Subscription Plan
-              </Link> */}
+
               <Link
                 to="/about"
                 className={`${isActive("/about")
@@ -189,11 +172,11 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <div className="fixed right-0 top-16 z-50 h-full w-3/4 max-w-xs translate-x-0 transform border-l border-gray-200 bg-white shadow-lg transition-transform duration-300 ease-out md:hidden">
-            <div className="flex flex-col gap-4 px-4 py-4">
+          <div className="fixed right-0 top-16 z-50 h-full w-3/4 max-w-xs border-l border-gray-200 bg-white shadow-lg md:hidden overflow-y-auto">
+            <div className="flex flex-col gap-1 px-4 py-4">
               <Link
                 to="/"
-                className={`font-medium ${isActive("/") ? "text-green-500" : "text-gray-700 hover:text-green-500"}`}
+                className={`px-3 py-2 rounded font-medium ${isActive("/") ? "bg-green-50 text-green-500" : "text-gray-700 hover:bg-gray-100"}`}
                 onClick={() => setMenuOpen(false)}
               >
                 Home
@@ -201,75 +184,106 @@ export default function Navigation() {
 
               <Link
                 to="/about"
-                className={`${isActive("/about") ? "text-orange-500" : "text-gray-700 hover:text-orange-500"}`}
+                className={`px-3 py-2 rounded ${isActive("/about") ? "bg-green-50 text-green-500" : "text-gray-700 hover:bg-gray-100"}`}
                 onClick={() => setMenuOpen(false)}
               >
                 About Us
               </Link>
+
               <Link
                 to="/reports"
-                className={`${isActive("/reports") ? "text-orange-500" : "text-gray-700 hover:text-orange-500"}`}
+                className={`px-3 py-2 rounded ${isActive("/reports") ? "bg-green-50 text-green-500" : "text-gray-700 hover:bg-gray-100"}`}
                 onClick={() => setMenuOpen(false)}
               >
                 Grading & Reports
               </Link>
+
               <div>
                 <button
                   onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                  className="flex w-full items-center justify-between text-left text-gray-700 hover:text-green-500"
+                  className={`w-full px-3 py-2 rounded flex items-center justify-between ${mobileServicesOpen ? "bg-green-50 text-green-500" : "text-gray-700 hover:bg-gray-100"}`}
                 >
                   <span>Services</span>
-                  <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <svg
+                    className={`h-4 w-4 transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`}
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
                 {mobileServicesOpen && (
-                  <div className="mt-2 flex flex-col gap-1 pl-3">
-                    <Link to="/services" className="text-gray-700 hover:text-green-500" onClick={() => setMenuOpen(false)}>All Services</Link>
-                    <Link to="/services/diagnostics" className="text-gray-700 hover:text-green-500" onClick={() => setMenuOpen(false)}>Diagnostics</Link>
-                    <Link to="/services/consulting" className="text-gray-700 hover:text-green-500" onClick={() => setMenuOpen(false)}>Consulting</Link>
-                    <Link to="/services/training" className="text-gray-700 hover:text-green-500" onClick={() => setMenuOpen(false)}>Training</Link>
+                  <div className="mt-1 flex flex-col gap-1 pl-6 bg-gray-50 rounded py-2">
+                    <Link
+                      to="/services"
+                      className="px-3 py-2 text-gray-700 hover:text-green-500 hover:bg-white rounded"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      All Services
+                    </Link>
+                    <Link
+                      to="/services/diagnostics"
+                      className="px-3 py-2 text-gray-700 hover:text-green-500 hover:bg-white rounded"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Diagnostics
+                    </Link>
+                    <Link
+                      to="/services/consulting"
+                      className="px-3 py-2 text-gray-700 hover:text-green-500 hover:bg-white rounded"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Consulting
+                    </Link>
+                    <Link
+                      to="/services/training"
+                      className="px-3 py-2 text-gray-700 hover:text-green-500 hover:bg-white rounded"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Training
+                    </Link>
                   </div>
                 )}
               </div>
+
               <Link
                 to="/careers"
-                className={`${isActive("/careers")
-                  ? "border-b-2 border-green-500 pb-1 text-green-500"
-                  : "text-gray-700 hover:text-green-500"
-                  }`}
+                className={`px-3 py-2 rounded ${isActive("/careers") ? "bg-green-50 text-green-500" : "text-gray-700 hover:bg-gray-100"}`}
                 onClick={() => setMenuOpen(false)}
               >
                 Careers
               </Link>
-              {/* <Link
+
+              <Link
                 to="/blog"
-                className={`${isActive("/blog") ? "text-orange-500" : "text-gray-700 hover:text-orange-500"}`}
+                className={`px-3 py-2 rounded ${isActive("/blog") ? "bg-green-50 text-green-500" : "text-gray-700 hover:bg-gray-100"}`}
                 onClick={() => setMenuOpen(false)}
               >
                 Blog
-              </Link> */}
+              </Link>
 
-              <hr className="my-2 border-gray-200" />
-              <div className="flex items-center gap-4">
-                <button className="text-gray-700 hover:text-green-500" aria-label="Search">
-                  <svg className="inline h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <circle cx="11" cy="11" r="8" />
-                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                  </svg>
+              <hr className="my-3 border-gray-200" />
+
+              <div className="flex items-center gap-3 px-1">
+                <button className="p-2 text-gray-700 hover:text-green-500 hover:bg-gray-100 rounded" aria-label="Search">
+                  <IoSearch size={20} />
                 </button>
-                <Link to="/login" className="text-gray-700 hover:text-green-500" onClick={() => setMenuOpen(false)} aria-label="Login">
-                  <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M16 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
-                    <circle cx="12" cy="7" r="4" />
-                  </svg>
+                <Link
+                  to="/login"
+                  className="p-2 text-gray-700 hover:text-green-500 hover:bg-gray-100 rounded"
+                  onClick={() => setMenuOpen(false)}
+                  aria-label="Login"
+                >
+                  <FaUser size={20} />
                 </Link>
                 <Link
                   to="/verify-report"
-                  className="ml-auto rounded border border-green-500 bg-white px-4 py-1 font-medium text-green-500 hover:border-green-600 hover:bg-green-50"
+                  className="ml-auto rounded border border-green-500 bg-white px-4 py-2 font-medium text-green-500 hover:border-green-600 hover:bg-green-50 text-sm"
                   onClick={() => setMenuOpen(false)}
                 >
-                  Verify Report
+                  Verify
                 </Link>
               </div>
             </div>
