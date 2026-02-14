@@ -198,20 +198,7 @@ export default function Navigation() {
               >
                 Home
               </Link>
-              <Link
-                to="/menu"
-                className={`${isMenuActive() ? "text-green-500" : "text-gray-700 hover:text-green-500"}`}
-                onClick={() => setMenuOpen(false)}
-              >
-                Menu
-              </Link>
-              <Link
-                to="/subscription"
-                className={`${isActive("/subscription") ? "text-green-500" : "text-gray-700 hover:text-green-500"}`}
-                onClick={() => setMenuOpen(false)}
-              >
-                Subscription Plan
-              </Link>
+
               <Link
                 to="/about"
                 className={`${isActive("/about") ? "text-orange-500" : "text-gray-700 hover:text-orange-500"}`}
