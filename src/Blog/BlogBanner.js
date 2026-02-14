@@ -9,6 +9,7 @@ export default function BlogBanner() {
           International Diamond
           <br />
           Verified Labs
+
         </h1>
         <p className="LetGreeNox animate__animated animate__backInDown mb-10 text-center text-lg text-white md:text-left">
           To deliver trusted diamond and jewelry certification services that promote transparency, authenticity, and integrity across the global gem and jewelry industry.
