@@ -140,7 +140,7 @@ export default function Navigation() {
                   : "text-gray-700 hover:text-green-500"
                   }`}
               >
-                4Cs Blog
+                Blog
               </Link>
 
 
