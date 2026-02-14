@@ -6,6 +6,7 @@ import { IoSearch } from "react-icons/io5";
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   const wrapperRef = useRef(null);
   const closeTimeoutRef = useRef(null);
@@ -34,6 +35,14 @@ export default function Navigation() {
   };
 
   const isActive = (path) => location.pathname === path;
+
+  useEffect(() => {
+    // lock body scroll when mobile menu is open
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   return (
     <header className="fixed left-0 top-0 z-50 w-full border-b border-gray-200 bg-white shadow-sm">
@@ -201,6 +210,65 @@ export default function Navigation() {
               <path d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
+
+          {/* Mobile overlay + slide-in drawer (right -> left) */}
+          <div className={`fixed inset-0 z-40 pointer-events-none`}>
+            <div
+              className={`absolute inset-0 bg-black bg-opacity-40 transition-opacity ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0'}`}
+              onClick={() => setMenuOpen(false)}
+            />
+
+            <aside className={`fixed top-0 right-0 h-full w-80 bg-white shadow-xl transform transition-transform duration-300 ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+              <div className="flex items-center justify-between p-4 border-b">
+                <Link to="/" className="flex items-center gap-2" onClick={() => setMenuOpen(false)}>
+                  <img src="/img/logo.png" alt="logo" className="h-10 w-10 object-contain" />
+                  IDVL
+                </Link>
+                <button className="text-gray-700" onClick={() => setMenuOpen(false)} aria-label="Close menu">
+                  <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+
+              <div className="p-4 overflow-y-auto h-full">
+                <nav className="flex flex-col space-y-1">
+                  <Link to="/" className={`py-3 ${isActive("/") ? 'text-green-500 font-medium' : 'text-gray-700'}`} onClick={() => setMenuOpen(false)}>Diamond 4Cs</Link>
+                  <Link to="/about" className={`py-3 ${isActive("/about") ? 'text-orange-500 font-medium' : 'text-gray-700'}`} onClick={() => setMenuOpen(false)}>About</Link>
+                  <Link to="/reports" className={`py-3 ${isActive("/reports") ? 'text-orange-500 font-medium' : 'text-gray-700'}`} onClick={() => setMenuOpen(false)}>Grading & Reports</Link>
+
+                  <div>
+                    <button className="w-full flex items-center justify-between py-3 text-gray-700" onClick={() => setMobileServicesOpen(!mobileServicesOpen)}>
+                      <span className={`${isActive("/services") ? 'text-green-500 font-medium' : ''}`}>Services</span>
+                      <svg className={`h-4 w-4 transition-transform ${mobileServicesOpen ? 'transform rotate-180' : ''}`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+
+                    {mobileServicesOpen && (
+                      <div className="pl-3">
+                        <Link to="/services" className="block py-2 text-gray-700" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>All Services</Link>
+                        <Link to="/services/diagnostics" className="block py-2 text-gray-700" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>Diagnostics</Link>
+                        <Link to="/services/consulting" className="block py-2 text-gray-700" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>Consulting</Link>
+                        <Link to="/services/training" className="block py-2 text-gray-700" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>Training</Link>
+                      </div>
+                    )}
+                  </div>
+
+                  <Link to="/careers" className={`py-3 ${isActive("/careers") ? 'text-green-500 font-medium' : 'text-gray-700'}`} onClick={() => setMenuOpen(false)}>Careers</Link>
+                  <Link to="/blog" className={`py-3 ${isActive("/blog") ? 'text-green-500 font-medium' : 'text-gray-700'}`} onClick={() => setMenuOpen(false)}>Blog</Link>
+
+                  <div className="pt-4 border-t mt-4 flex items-center gap-3">
+                    <button className="text-gray-700" onClick={() => setMenuOpen(false)}>
+                      <IoSearch size={18} />
+                    </button>
+                    <Link to="/login" className="text-gray-700" onClick={() => setMenuOpen(false)}>
+                      <FaUser size={18} />
+                    </Link>
+                    <Link to="/verify-report" className="ml-2 rounded border border-green-500 px-3 py-1 text-green-500" onClick={() => setMenuOpen(false)}>Verify Report</Link>
+                  </div>
+                </nav>
+              </div>
+            </aside>
+          </div>
         </nav>
       </div>
     </header>
