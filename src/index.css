@@ -148,6 +148,12 @@ header {
 
 }
 
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #cd9c28;
+}
+
 .blog_banner {
     padding-left: 150px;
     padding-top: 75px;

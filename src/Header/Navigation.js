@@ -41,12 +41,13 @@ export default function Navigation() {
     <header className="fixed left-0 top-0 z-50 w-full border-b border-gray-200 bg-white shadow-sm">
       <div className="mx-auto w-full max-w-screen-xl px-4">
         <nav className="flex items-center justify-between py-1">
-          <Link to="/" className="flex items-center gap-2">
+          <Link to="/" className="logo flex items-center gap-2">
             <img
               src="/img/logo.png"
               alt="orangeox Logo"
               className="h-20 w-20 object-contain"
             />
+            IDVL
           </Link>
 
           <div className="hidden w-full items-center justify-end md:flex">
