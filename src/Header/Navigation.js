@@ -6,7 +6,6 @@ import { IoSearch } from "react-icons/io5";
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   const wrapperRef = useRef(null);
   const closeTimeoutRef = useRef(null);
