@@ -154,6 +154,14 @@ header {
     color: #cd9c28;
 }
 
+.contact_bg {
+    background-color: #f7f8fd;
+    background-image: url(/public/img/contact.svg);
+    background-position: top;
+    background-repeat: repeat;
+    margin-top: 70px;
+}
+
 .blog_banner {
     padding-left: 150px;
     padding-top: 75px;

@@ -154,13 +154,13 @@ export default function Navigation() {
                 </div>
 
                 <Link
-                  to="/careers"
-                  className={`${isActive("/careers")
+                  to="/contact"
+                  className={`${isActive("/contact")
                     ? "border-b-2 border-green-500 pb-1 text-green-500"
                     : "text-gray-700 hover:text-green-500"
                     }`}
                 >
-                  Careers
+                  Contact
                 </Link>
 
                 <Link
@@ -174,7 +174,7 @@ export default function Navigation() {
                 </Link>
 
                 <div className="flex items-center gap-4">
-                  <button className="text-gray-700 hover:text-green-500">
+                  {/* <button className="text-gray-700 hover:text-green-500">
                     <IoSearch size={20} />
                   </button>
 
@@ -185,7 +185,7 @@ export default function Navigation() {
                     className="text-gray-700 hover:text-green-500"
                   >
                     <FaUser size={20} />
-                  </Link>
+                  </Link> */}
 
                   <Link
                     to="/verify-report"

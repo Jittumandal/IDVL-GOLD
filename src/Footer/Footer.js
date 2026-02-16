@@ -68,38 +68,13 @@ const Footer = () => {
                 </Link>
               </li>
 
-              <li>
-                <Link to="/" className="hover:text-white">
-                  Retailer Lookup
-                </Link>
-              </li>
 
               <li>
                 <Link to="/menu" className="hover:text-white">
                   Report Check
                 </Link>
               </li>
-              <li>
-                <Link to="/subscription" className="hover:text-white">
-                  Gem Encyclopedia
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="hover:text-white">
-                  Laboratory Services
-                </Link>
-              </li>
-              <li>
-                <Link to="/careers" className="hover:text-white">
-                  Education
-                </Link>
-              </li>
 
-              <li>
-                <Link to="/blog" className="hover:text-white">
-                  Are you a retailer?
-                </Link>
-              </li>
             </ul>
           </div>
           <div>
@@ -110,21 +85,7 @@ const Footer = () => {
                   Hallmarking
                 </Link>
               </li>
-              <li>
-                <Link to="#" className="hover:text-white">
-                  Assaying
-                </Link>
-              </li>
-              <li>
-                <Link to="#" className="hover:text-white">
-                  XRF Testing
-                </Link>
-              </li>
-              <li>
-                <Link to="#" className="hover:text-white">
-                  Refining
-                </Link>
-              </li>
+
               <li>
                 <Link to="/privacypolicy" className="hover:text-white">
                   Privacy Policy
@@ -135,11 +96,8 @@ const Footer = () => {
                   Terms & Conditions
                 </Link>
               </li>
-              <li>
-                <Link to="/termservice" className="hover:text-white">
-                  Copyrights and Trademarks
-                </Link>
-                {/* <button
+              {/* <li>
+                <button
                   onClick={() =>
                     document
                       .getElementById("target-section")
@@ -147,8 +105,8 @@ const Footer = () => {
                   }
                 >
                   Terms & Conditions
-                </button> */}
-              </li>
+                </button>
+              </li> */}
             </ul>
           </div>
           {/* Contact Info */}
