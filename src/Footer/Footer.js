@@ -58,19 +58,19 @@ const Footer = () => {
             <div className="quiklinks mb-2 font-semibold">Related Resources</div>
             <ul className="space-y-1 text-sm text-gray-300">
               <li>
-                <Link to="/verify-certificate" className="hover:text-white">
+                <Link to="/services/certification" className="hover:text-white">
                   Verify Certificate
                 </Link>
               </li>
               <li>
-                <Link to="/verify-certificate" className="hover:text-white">
+                <Link to="/services" className="hover:text-white">
                   Services
                 </Link>
               </li>
 
 
               <li>
-                <Link to="/menu" className="hover:text-white">
+                <Link to="/verify-report" className="hover:text-white">
                   Report Check
                 </Link>
               </li>
@@ -81,8 +81,8 @@ const Footer = () => {
             <div className="quiklinks mb-2 font-semibold">Learn More</div>
             <ul className="space-y-1 text-sm text-gray-300">
               <li>
-                <Link to="#" className="hover:text-white">
-                  Hallmarking
+                <Link to="/gem-identification-report" className="hover:text-white">
+                  Gem Identification Report
                 </Link>
               </li>
 
@@ -91,7 +91,7 @@ const Footer = () => {
                   Privacy Policy
                 </Link>
               </li>
-              <li className="py-2">
+              <li>
                 <Link to="/termsconditions" className="hover:text-white">
                   Terms & Conditions
                 </Link>

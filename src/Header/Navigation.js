@@ -120,34 +120,34 @@ export default function Navigation() {
                   </button>
 
                   {servicesOpen && (
-                    <div className="absolute left-0 top-full z-40 mt-2 w-48 rounded border border-gray-200 bg-white py-2 shadow-lg">
+                    <div className="absolute left-0 top-full z-40 mt-2 w-56 rounded border border-gray-200 bg-white py-2 shadow-lg">
                       <Link
                         to="/services"
-                        className="block px-4 py-2 hover:bg-green-50"
+                        className="block px-4 py-2 hover:bg-green-50 font-medium text-gray-900"
                         onClick={() => setServicesOpen(false)}
                       >
                         All Services
                       </Link>
                       <Link
-                        to="/services/diagnostics"
+                        to="/services/screening"
                         className="block px-4 py-2 hover:bg-green-50"
                         onClick={() => setServicesOpen(false)}
                       >
-                        Diagnostics
+                        Diamond Screening
                       </Link>
                       <Link
-                        to="/services/consulting"
+                        to="/services/sorting"
                         className="block px-4 py-2 hover:bg-green-50"
                         onClick={() => setServicesOpen(false)}
                       >
-                        Consulting
+                        Diamond Sorting
                       </Link>
                       <Link
-                        to="/services/training"
+                        to="/services/certification"
                         className="block px-4 py-2 hover:bg-green-50"
                         onClick={() => setServicesOpen(false)}
                       >
-                        Training
+                        Certification
                       </Link>
                     </div>
                   )}
@@ -252,10 +252,10 @@ export default function Navigation() {
 
                 {mobileServicesOpen && (
                   <div className="pl-3 mt-1 space-y-1">
-                    <Link to="/services" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>All Services</Link>
-                    <Link to="/services/diagnostics" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>Diagnostics</Link>
-                    <Link to="/services/consulting" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>Consulting</Link>
-                    <Link to="/services/training" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>Training</Link>
+                    <Link to="/services" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50 font-medium" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>All Services</Link>
+                    <Link to="/services/screening" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>Diamond Screening</Link>
+                    <Link to="/services/sorting" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>Diamond Sorting</Link>
+                    <Link to="/services/certification" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>Certification</Link>
                   </div>
                 )}
               </div>
