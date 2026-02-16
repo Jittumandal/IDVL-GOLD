@@ -55,26 +55,28 @@ const Footer = () => {
         {/* Center: Quick Links and Utility Pages */}
         <div className="flex flex-[2] flex-col justify-between gap-8 md:flex-row">
           <div>
-            <div className="quiklinks mb-2 font-semibold">Related Resources</div>
+            <div className="quiklinks mb-2 font-semibold">Services</div>
             <ul className="space-y-1 text-sm text-gray-300">
               <li>
-                <Link to="/services/certification" className="hover:text-white">
-                  Verify Certificate
-                </Link>
-              </li>
-              <li>
                 <Link to="/services" className="hover:text-white">
-                  Services
+                  All Services
                 </Link>
               </li>
-
-
               <li>
-                <Link to="/verify-report" className="hover:text-white">
-                  Report Check
+                <Link to="/services/screening" className="hover:text-white">
+                  Diamond Screening
                 </Link>
               </li>
-
+              <li>
+                <Link to="/services/sorting" className="hover:text-white">
+                  Diamond Sorting
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/certification" className="hover:text-white">
+                  Certification
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
