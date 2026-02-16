@@ -5,7 +5,7 @@ const reports = [
   {
     title: "Colored Stone Report",
     description:
-      "IGI analyzes every gemstone to identify species and variety, provide detailed information, and disclose any treatments present, ensuring the integrity of IGI certified gemstones for consumers.",
+      "IDVL carefully examines each gemstone to accurately determine its species and variety. Our experts provide comprehensive identification details and clearly disclose any detected treatments or enhancements. Every IDVL Colored Stone Report is prepared with precision and transparency, ensuring authenticity, trust, and confidence for customers and industry professionals.",
     img: "/images/colored_diamond_report.png",
     learnLink: "/reports/colored-stone",
     verifyLink: "/verify/colored-stone",
@@ -13,7 +13,7 @@ const reports = [
   {
     title: "Jewelry Report",
     description:
-      "IGI pioneers jewelry grading and certification, providing professional reports for finished jewelry that help consumers purchase with confidence. help consumers purchase with confidence.",
+      "IDVL is committed to excellence in jewelry grading and certification, delivering comprehensive evaluation reports for finished jewelry pieces. Each report is prepared by experienced gemological experts who carefully assess metal purity, gemstone authenticity, quality characteristics, and overall craftsmanship.",
     img: "/images/jewlery_reports.png",
     learnLink: "/reports/jewelry",
     verifyLink: "/verify/jewelry",
@@ -21,7 +21,7 @@ const reports = [
   {
     title: "Diamond Reports",
     description:
-      "IGI's loose diamond reports clearly identify natural or lab-grown origin and document all aspects of the diamond’s value-setting 4Cs. IGI pioneers jewelry grading and certification",
+      "IDVL provides comprehensive loose diamond grading reports that clearly determine whether a diamond is natural or laboratory-grown. Each report thoroughly documents the essential value-defining characteristics, including the internationally recognized 4Cs — Cut, Color, Clarity, and Carat Weight.",
     img: "/images/diamond-reports.png",
     learnLink: "/reports/diamond",
     verifyLink: "/verify/diamond",
@@ -36,7 +36,7 @@ const Subscription_Plans = () => {
           {reports.map((r, idx) => (
             <article key={idx} className="flex flex-col gap-4">
               <h3 className="text-2xl font-medium text_title_color text-gray-900">{r.title}</h3>
-              <p className="text-gray-600">{r.description}</p>
+              <p className="text-gray-600 line-clamp-5">{r.description}</p>
               <div className="overflow-hidden rounded bg-white shadow-sm">
                 <img src={r.img} alt={r.title} className="h-100 w-full object-cover" />
               </div>

@@ -7,8 +7,9 @@ const blocks = [
     type: 'text',
     title: "Diamond Color",
     paragraphs: [
-      "Often when we talk about diamond color, we are actually talking about the absence of color. As subtle as color distinction may be, color variations from the most obvious to subdued can drastically alter diamond quality and price. Luckily, diamond color isn’t a matter of opinion. Proper color evaluation is a matter of expertise..",
-      "Before GIA, colorless stones might have been described as water, clarity could be described as with or without flaws, and cut could be communicated as made well. Only carat weight has been consistently in use, dating back to the 1500s.",
+      "When discussing diamond color, we are typically referring to the degree of color absence within the stone. Even the slightest variation in tone can significantly influence a diamond’s overall quality, appearance, and market value. While these differences may appear subtle to the untrained eye, they are measurable and scientifically evaluated through professional gemological standards.",
+      "At IDVL, diamond color assessment is never based on opinion. It is determined through strict grading procedures, controlled lighting environments, and expert analysis to ensure precision and consistency.",
+      "Historically, before standardized grading systems were established, diamonds were often described using informal terms such as “water-clear” for colorless stones, clarity as “with or without flaws,” and cut simply as “well made.” Among these characteristics, only carat weight had long-standing consistency, dating back several centuries.",
 
 
     ],
@@ -16,8 +17,9 @@ const blocks = [
   {
     type: 'text', title: "Diamond Clarity",
     paragraphs: [
-      "As a nonprofit public benefit institute, we provide the expertise, quality reports and verifications that everyone from miners to merchant and you can trust when making your next diamond decision.",
-      "Ask for a GIA report. If they don't have one, ask for a new jeweler.",
+      "Diamond clarity refers to the presence or absence of internal characteristics (inclusions) and external features (blemishes) formed during a diamond’s natural growth process. These characteristics are carefully evaluated under magnification to determine their size, position, visibility, and overall impact on the diamond’s appearance and value.",
+      "As an independent and professionally managed gemological laboratory, IDVL provides expert analysis, detailed grading reports, and reliable verification services that are trusted by industry professionals—from manufacturers and wholesalers to retailers and consumers.",
+      "An IDVL Clarity Report ensures complete transparency and accuracy, helping buyers make informed decisions with confidence. When purchasing a diamond, always request an official laboratory grading report from a trusted certification body. Independent documentation is essential for ensuring authenticity, quality assurance, and peace of mind.",
     ]
   },
   { type: 'image', img: '/images/engagement-ring.png' },
@@ -25,15 +27,17 @@ const blocks = [
   {
     type: 'text', title: "Diamond Cut",
     paragraphs: [
-      "One of a diamond’s most recognizable characteristics, diamond cut, refers to how a diamond interacts with light. When you hear words like Brightness, Scintillation and Fire, they describe how masterfully a diamond is cut. Cut also describes the overall design of a diamond, including the arrangement and proportions of the diamond’s facets. There are a nearly unlimited combination of proportions possible, and all of them impact the interaction with light.",
-      "We provide training, resources and clear reporting so consumers and professionals understand gemstone and diamond quality.",
+      "Diamond cut is one of the most visually impactful characteristics of a diamond, describing how effectively it interacts with light. Qualities such as brightness, fire, and scintillation are direct results of precise cutting and expert craftsmanship. A well-cut diamond reflects and refracts light beautifully, creating the brilliance and sparkle that make diamonds so captivating.",
+      "Cut also refers to the diamond’s overall design, including the proportions, symmetry, and arrangement of its facets. Even minor variations in angles and measurements can significantly influence light performance. With countless possible combinations of proportions, accurate evaluation is essential to determine how successfully a diamond maximizes its visual potential.",
+      "At IDVL, diamond cut is assessed using advanced grading standards and careful analytical procedures. In addition to providing detailed and transparent reports, IDVL is committed to education—offering guidance, resources, and clear documentation to help both consumers and industry professionals fully understand diamond and gemstone quality.",
     ]
   },
   {
     type: 'text', title: "Diamond Carat Weight",
     paragraphs: [
-      "Carat weight is the most consistent of the 4Cs, but it’s not just about size. Carat weight is a measure of a diamond’s weight, and it can be an indicator of rarity. However, two diamonds of equal carat weight can have vastly different values based on their cut, color and clarity.",
-      "Consistent, repeatable grading lets buyers compare and choose with confidence. Our reports document clarity, color, cut and carat for trusted decisions.",
+      "Carat weight is the most precise and consistently measured of the Diamond 4Cs. While often associated with a diamond’s size, carat actually refers to the stone’s weight. Larger diamonds are typically rarer, which can increase their value; however, carat weight alone does not determine overall worth. Two diamonds of the same carat weight may differ significantly in value depending on their cut, color, and clarity.",
+      "At IDVL, carat weight is measured using highly accurate digital instruments to ensure precision and reliability. Our grading process follows consistent and repeatable standards, allowing buyers and industry professionals to confidently compare diamonds.",
+      "Every IDVL report clearly documents all four value-defining characteristics—Cut, Color, Clarity, and Carat Weight—providing transparent and trustworthy information for informed purchasing and investment decisions.",
     ]
   },
   { type: 'image', img: '/images/CaratWeight.png' },
