@@ -63,7 +63,7 @@ const OurHistory = () => {
                     <p key={idx} className="mb-4 max-w-xl text-gray-600">{p}</p>
                   ))}
                   <div className="mt-8 flex justify-center md:justify-start">
-                    <Link to="/services" className="inline-block rounded bg-green-500 px-8 py-3 text-white font-medium hover:bg-green-600">Know More</Link>
+                    <Link to="/reports" className="inline-block rounded bg-green-500 px-8 py-3 text-white font-medium hover:bg-green-600">Know More</Link>
                   </div>
                 </div>
               </div>

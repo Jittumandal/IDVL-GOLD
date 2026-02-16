@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
@@ -53,9 +54,9 @@ const About = () => {
                 <button type="button" className="px-8 py-3 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition">
                   Learn More
                 </button>
-                <button type="button" className="px-8 py-3 border-2 border-orange-500 text-orange-500 font-semibold rounded hover:bg-orange-50 transition">
+                <Link to="/contact" className="inline-block px-8 py-3 border-2 border-orange-500 text-orange-500 font-semibold rounded hover:bg-orange-50 transition">
                   Contact Us
-                </button>
+                </Link>
               </div>
             </div>
             <div className="relative h-96">

@@ -44,7 +44,7 @@ const Subscription_Plans = () => {
                 <Link to={r.learnLink} className="inline-flex items-center rounded border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
                   Learn More
                 </Link>
-                <Link to={r.verifyLink} className="ml-2 inline-flex items-center text-sm font-medium text-green-600 hover:text-green-700">
+                <Link to="/verify-report" className="ml-2 inline-flex items-center text-sm font-medium text-green-600 hover:text-green-700">
                   Verify report
                   <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
