@@ -21,15 +21,16 @@ const About = () => {
           <div className="w-full ">
             <div className="space-y-6">
               <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white leading-tight">
-                Beauty lies in the eye of the beholder.
+                International Diamond Verification Lab
 
               </h1>
               <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white leading-tight">
 
-                <span className="text-orange-400">Quality rests on the foundation  <br /> of science.</span>
+                <span className="text-orange-400">Precision • Transparency • Trust</span>
               </h1>
               <p className="text-lg text-gray-100 ">
-                International Diamond Verified Lab (IDVL) is committed to delivering world-class diamond grading,<br /> gemstone authentication, and certification services <br /> with accuracy, integrity, and transparency.
+                Welcome to International Diamond Verification Lab (IDVL) — a trusted destination for scientific diamond testing, grading, and certification.
+                We combine advanced technology with expert gemological knowledge to ensure every diamond is accurately verified and documented.
               </p>
             </div>
           </div>
@@ -45,10 +46,17 @@ const About = () => {
                 About IDVL
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-4">
-                International Diamond Verified Lab is a premier certification authority in the diamond and precious gemstone industry. With decades of expertise, we combine traditional gemological knowledge with cutting-edge technology to provide accurate, trustworthy assessments.
+                International Diamond Verification Lab (IDVL) is a modern diamond testing and certification laboratory dedicated to authenticity, accuracy, and transparency.
+                Our services include:
+                Diamond Authenticity Testing
+                Natural vs. Lab-Grown Diamond Identification
+                4Cs Grading (Cut, Color, Clarity, Carat)
+                Advanced Spectroscopic Analysis
+                Laser Inscription Verification
+                Detailed Diamond Certification Reports
               </p>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                Our mission is to ensure that every diamond and gemstone is evaluated with the highest standards of accuracy and integrity, giving our clients and consumers the confidence they deserve.
+                Each report is prepared using scientific methods and internationally accepted grading standards.
               </p>
               <div className="flex gap-4">
                 <button type="button" className="px-8 py-3 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition">

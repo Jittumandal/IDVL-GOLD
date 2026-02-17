@@ -7,9 +7,13 @@ export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [reportsOpen, setReportsOpen] = useState(false);
+  const [mobileReportsOpen, setMobileReportsOpen] = useState(false);
 
   const wrapperRef = useRef(null);
+  const reportsRef = useRef(null);
   const closeTimeoutRef = useRef(null);
+  const closeTimeoutReportsRef = useRef(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -32,6 +36,18 @@ export default function Navigation() {
 
   const handleServicesLeave = () => {
     closeTimeoutRef.current = setTimeout(() => setServicesOpen(false), 150);
+  };
+
+  const handleReportsEnter = () => {
+    if (closeTimeoutReportsRef.current) {
+      clearTimeout(closeTimeoutReportsRef.current);
+      closeTimeoutReportsRef.current = null;
+    }
+    setReportsOpen(true);
+  };
+
+  const handleReportsLeave = () => {
+    closeTimeoutReportsRef.current = setTimeout(() => setReportsOpen(false), 150);
   };
 
   const isActive = (path) => location.pathname === path;
@@ -80,15 +96,68 @@ export default function Navigation() {
                   About
                 </Link>
 
-                <Link
-                  to="/reports"
-                  className={`${isActive("/reports")
-                    ? "border-b-2 border-orange-500 pb-1 text-orange-500"
-                    : "text-gray-700 hover:text-orange-500"
-                    }`}
+                <div
+                  ref={reportsRef}
+                  onMouseEnter={handleReportsEnter}
+                  onMouseLeave={handleReportsLeave}
+                  className="relative"
                 >
-                  Grading & Reports
-                </Link>
+                  <button
+                    onClick={() => setReportsOpen(!reportsOpen)}
+                    className={`font-medium inline-flex items-center gap-1 ${isActive("/reports")
+                      ? "border-b-2 border-orange-500 pb-1 text-orange-500"
+                      : "text-gray-700 hover:text-orange-500"
+                      }`}
+                  >
+                    Grading & Reports
+                    <svg
+                      className="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+
+                  {reportsOpen && (
+                    <div className="absolute left-0 top-full z-40 mt-2 w-60 rounded border border-gray-200 bg-white py-2 shadow-lg">
+                      <Link
+                        to="/reports"
+                        className="block px-4 py-2 hover:bg-green-50 font-medium text-gray-900"
+                        onClick={() => setReportsOpen(false)}
+                      >
+                        All Reports
+                      </Link>
+                      <Link
+                        to="/reports/colored-stone"
+                        className="block px-4 py-2 hover:bg-green-50"
+                        onClick={() => setReportsOpen(false)}
+                      >
+                        Colored Stone Report
+                      </Link>
+                      <Link
+                        to="/reports/jewelry"
+                        className="block px-4 py-2 hover:bg-green-50"
+                        onClick={() => setReportsOpen(false)}
+                      >
+                        Jewelry Report
+                      </Link>
+                      <Link
+                        to="/reports/diamond"
+                        className="block px-4 py-2 hover:bg-green-50"
+                        onClick={() => setReportsOpen(false)}
+                      >
+                        Diamond Reports
+                      </Link>
+                    </div>
+                  )}
+                </div>
 
                 <div
                   ref={wrapperRef}
@@ -128,19 +197,13 @@ export default function Navigation() {
                       >
                         All Services
                       </Link>
+
                       <Link
-                        to="/services/screening"
+                        to="/gem-identification-report"
                         className="block px-4 py-2 hover:bg-green-50"
                         onClick={() => setServicesOpen(false)}
                       >
-                        Diamond Screening
-                      </Link>
-                      <Link
-                        to="/services/sorting"
-                        className="block px-4 py-2 hover:bg-green-50"
-                        onClick={() => setServicesOpen(false)}
-                      >
-                        Diamond Sorting
+                        Gem Identification Report
                       </Link>
                       <Link
                         to="/services/certification"
@@ -242,7 +305,21 @@ export default function Navigation() {
             <nav className="flex flex-col space-y-2">
               <Link to="/" className={`py-3 rounded px-2 ${isActive("/") ? 'bg-green-50 text-green-600 font-medium' : 'text-gray-700 hover:bg-gray-50'}`} onClick={() => setMenuOpen(false)}>Diamond 4Cs</Link>
               <Link to="/about" className={`py-3 rounded px-2 ${isActive("/about") ? 'bg-orange-50 text-orange-600 font-medium' : 'text-gray-700 hover:bg-gray-50'}`} onClick={() => setMenuOpen(false)}>About</Link>
-              <Link to="/reports" className={`py-3 rounded px-2 ${isActive("/reports") ? 'bg-orange-50 text-orange-600 font-medium' : 'text-gray-700 hover:bg-gray-50'}`} onClick={() => setMenuOpen(false)}>Grading & Reports</Link>
+              <div>
+                <button className="w-full flex items-center justify-between py-3 px-2 rounded text-gray-700 hover:bg-gray-50" onClick={() => setMobileReportsOpen(!mobileReportsOpen)}>
+                  <span className={`${isActive("/reports") ? 'text-orange-600 font-medium' : ''}`}>Grading & Reports</span>
+                  <svg className={`h-4 w-4 transition-transform ${mobileReportsOpen ? 'transform rotate-180' : ''}`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+
+                {mobileReportsOpen && (
+                  <div className="pl-3 mt-1 space-y-1">
+                    <Link to="/reports" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50 font-medium" onClick={() => { setMenuOpen(false); setMobileReportsOpen(false); }}>All Reports</Link>
+                    <Link to="/reports/colored-stone" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileReportsOpen(false); }}>Colored Stone Report</Link>
+                    <Link to="/reports/jewelry" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileReportsOpen(false); }}>Jewelry Report</Link>
+                    <Link to="/reports/diamond" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileReportsOpen(false); }}>Diamond Reports</Link>
+                  </div>
+                )}
+              </div>
 
               <div>
                 <button className="w-full flex items-center justify-between py-3 px-2 rounded text-gray-700 hover:bg-gray-50" onClick={() => setMobileServicesOpen(!mobileServicesOpen)}>
@@ -260,7 +337,8 @@ export default function Navigation() {
                 )}
               </div>
 
-              <Link to="/careers" className={`py-3 rounded px-2 ${isActive("/careers") ? 'bg-green-50 text-green-600 font-medium' : 'text-gray-700 hover:bg-gray-50'}`} onClick={() => setMenuOpen(false)}>Careers</Link>
+              <Link to="/contact" className={`py-3 rounded px-2 ${isActive("/contact") ? 'bg-green-50 text-green-600 font-medium' : 'text-gray-700 hover:bg-gray-50'}`} onClick={() => setMenuOpen(false)}>Contact</Link>
+              {/* <Link to="/careers" className={`py-3 rounded px-2 ${isActive("/careers") ? 'bg-green-50 text-green-600 font-medium' : 'text-gray-700 hover:bg-gray-50'}`} onClick={() => setMenuOpen(false)}>Careers</Link> */}
               <Link to="/blog" className={`py-3 rounded px-2 ${isActive("/blog") ? 'bg-green-50 text-green-600 font-medium' : 'text-gray-700 hover:bg-gray-50'}`} onClick={() => setMenuOpen(false)}>Blog</Link>
 
               <div className="pt-4 border-t mt-4 flex items-center gap-3">

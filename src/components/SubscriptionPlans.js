@@ -5,7 +5,7 @@ const reports = [
   {
     title: "Colored Stone Report",
     description:
-      "IDVL carefully examines each gemstone to accurately determine its species and variety. Our experts provide comprehensive identification details and clearly disclose any detected treatments or enhancements. Every IDVL Colored Stone Report is prepared with precision and transparency, ensuring authenticity, trust, and confidence for customers and industry professionals.",
+      "IDVL conducts detailed gemological examinations to accurately determine a gemstone’s species, variety, and authenticity. Using advanced testing methods—including microscopic analysis, spectroscopy, and other specialized techniques—our experts identify both natural and laboratory-grown materials with precision.",
     img: "/images/colored_diamond_report.png",
     learnLink: "/reports/colored-stone",
     verifyLink: "/verify/colored-stone",
@@ -13,15 +13,14 @@ const reports = [
   {
     title: "Jewelry Report",
     description:
-      "IDVL is committed to excellence in jewelry grading and certification, delivering comprehensive evaluation reports for finished jewelry pieces. Each report is prepared by experienced gemological experts who carefully assess metal purity, gemstone authenticity, quality characteristics, and overall craftsmanship.",
+      "IDVL is committed to excellence in jewelry grading and certification. Our Jewelry Reports provide a comprehensive evaluation of finished jewelry articles, combining gemstone analysis with metal assessment and craftsmanship review.",
     img: "/images/jewlery_reports.png",
     learnLink: "/reports/jewelry",
     verifyLink: "/verify/jewelry",
   },
   {
     title: "Diamond Reports",
-    description:
-      "IDVL provides comprehensive loose diamond grading reports that clearly determine whether a diamond is natural or laboratory-grown. Each report thoroughly documents the essential value-defining characteristics, including the internationally recognized 4Cs — Cut, Color, Clarity, and Carat Weight.",
+    description: "IDVL provides comprehensive grading reports for loose diamonds, clearly determining whether a diamond is natural or laboratory-grown. Our diamond grading process follows internationally recognized standards and strict quality control procedures.",
     img: "/images/diamond-reports.png",
     learnLink: "/reports/diamond",
     verifyLink: "/verify/diamond",

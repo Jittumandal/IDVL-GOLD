@@ -48,7 +48,7 @@ export default function HeroSection() {
             </span>
           </h1>
           <p className="animate__animated animate__fadeInRight mb-10 mt-12 text-white text-gray-600 md:text-4xl">
-            The 4Cs are the global standard Color, Clarity, Cut and Carat Weight.
+            The 4Cs—Color, Clarity, Cut, and Carat Weight—represent the internationally recognized standard for assessing diamond quality
           </p>
           <form className="animate__animated animate__zoomIn mb-4 mt-10 flex w-full flex-col items-center justify-center gap-4 px-4 sm:flex-row sm:px-0">
             <input

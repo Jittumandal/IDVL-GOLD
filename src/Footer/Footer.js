@@ -63,6 +63,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/gem-identification-report" className="hover:text-white">
+                  Gem Identification Report
+                </Link>
+              </li>
+              {/* <li>
                 <Link to="/services/screening" className="hover:text-white">
                   Diamond Screening
                 </Link>
@@ -71,7 +76,7 @@ const Footer = () => {
                 <Link to="/services/sorting" className="hover:text-white">
                   Diamond Sorting
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="/services/certification" className="hover:text-white">
                   Certification
@@ -82,11 +87,7 @@ const Footer = () => {
           <div>
             <div className="quiklinks mb-2 font-semibold">Learn More</div>
             <ul className="space-y-1 text-sm text-gray-300">
-              <li>
-                <Link to="/gem-identification-report" className="hover:text-white">
-                  Gem Identification Report
-                </Link>
-              </li>
+
 
               <li>
                 <Link to="/privacypolicy" className="hover:text-white">
@@ -148,8 +149,24 @@ const Footer = () => {
           , All Rights Reserved.
         </div>
         <div className="flex gap-4">
-          <img src="/img/appstore.png" alt="App Store" className="h-10" />
-          <img src="/img/playstore.png" alt="Google Play" className="h-10" />
+          <a
+            href="https://apps.apple.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition"
+            title="Download on App Store"
+          >
+            <img src="/img/appstore.png" alt="App Store" className="h-10" />
+          </a>
+          <a
+            href="https://play.google.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition"
+            title="Get it on Google Play"
+          >
+            <img src="/img/playstore.png" alt="Google Play" className="h-10" />
+          </a>
         </div>
       </div>
     </footer>

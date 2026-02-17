@@ -18,6 +18,9 @@ const Services = lazyWithRetry(() => import("../pages/Services"));
 const DiamondScreening = lazyWithRetry(() => import("../pages/DiamondScreening"));
 const DiamondSorting = lazyWithRetry(() => import("../pages/DiamondSorting"));
 const Certification = lazyWithRetry(() => import("../pages/Certification"));
+const ColoredStone = lazyWithRetry(() => import("../pages/ColoredStone"));
+const Jewelry = lazyWithRetry(() => import("../pages/Jewelry"));
+const Diamond = lazyWithRetry(() => import("../pages/Diamond"));
 
 export default function AppRoutes() {
   return (
@@ -35,6 +38,9 @@ export default function AppRoutes() {
           <Route path="/privacypolicy" element={<Privacypolicy />} />
           <Route path="/verify-report" element={<VerifyReport />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/reports/colored-stone" element={<ColoredStone />} />
+          <Route path="/reports/jewelry" element={<Jewelry />} />
+          <Route path="/reports/diamond" element={<Diamond />} />
           <Route path="/gem-identification-report" element={<GemIdentificationReport />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/screening" element={<DiamondScreening />} />

@@ -5,7 +5,7 @@ const FreshMealPlansHeading = () => {
 
   const words = [
     { text: "Colored Stone Report", className: "text-[#E0B84C]" },
-    { text: "Jewelry Report", className: "text-[#000]" },
+    { text: "Jewelry Report", className: "text-[#E0B84C]" },
     { text: "Diamond Reports", className: "text-[#E0B84C]" },
 
   ];
