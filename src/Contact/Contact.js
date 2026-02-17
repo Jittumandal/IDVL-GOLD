@@ -24,7 +24,7 @@ export default function Contact() {
     }
 
     // Phone validation
-    const phoneRegex = /^[0-9\s\-\+\(\)]{10,}$/;
+    const phoneRegex = /^[0-9\s()+-]{10,}$/;
     if (!formData.phone || formData.phone.trim() === "") {
       newErrors.phone = "Phone is required";
     } else if (!phoneRegex.test(formData.phone.replace(/\s/g, ""))) {
