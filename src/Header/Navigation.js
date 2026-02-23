@@ -226,7 +226,7 @@ export default function Navigation() {
                   Contact
                 </Link>
 
-                <Link
+                {/* <Link
                   to="/blog"
                   className={`${isActive("/blog")
                     ? "border-b-2 border-green-500 pb-1 text-green-500"
@@ -234,7 +234,7 @@ export default function Navigation() {
                     }`}
                 >
                   Blog
-                </Link>
+                </Link> */}
 
                 <div className="flex items-center gap-4">
                   {/* <button className="text-gray-700 hover:text-green-500">

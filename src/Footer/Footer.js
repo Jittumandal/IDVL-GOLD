@@ -19,11 +19,12 @@ const Footer = () => {
           <div className="mb-4 flex items-center gap-2">
             <img src="/img/logo.png" alt="GreeNox Logo" className="h-10 w-10" />
             <span className="quiklinks text-2xl font-semibold italic">
-              IDVL Hallmarking
+              About IDVL
             </span>
           </div>
           <p className="mb-4 text-sm text-gray-300">
-            Dedicated to excellence in precious metals certification, offering trusted hallmarking services with precision and integrity.
+            International Diamond Verification Lab (IDVL) is a modern diamond testing and certification laboratory dedicated to authenticity, accuracy, and transparency. Our services include: Diamond Authenticity Testing Natural vs. Lab-Grown Diamond Identification 4Cs Grading (Cut, Color, Clarity, Carat)
+
           </p>
           <div className="mt-12 flex gap-5">
             <button
@@ -85,15 +86,8 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <div className="quiklinks mb-2 font-semibold">Learn More</div>
+            <div className="quiklinks mb-2 font-semibold">Quik Links</div>
             <ul className="space-y-1 text-sm text-gray-300">
-
-
-              <li>
-                <Link to="/privacypolicy" className="hover:text-white">
-                  Privacy Policy
-                </Link>
-              </li>
               <li>
                 <Link to="/termsconditions" className="hover:text-white">
                   Terms & Conditions
@@ -144,7 +138,7 @@ const Footer = () => {
         <div className="text-sm text-gray-400">
           © 2025{" "}
           <Link to="/" className="no-underline hover:text-white">
-            IDVL Hallmarking
+            IDVL
           </Link>
           , All Rights Reserved.
         </div>

@@ -28,7 +28,7 @@ export default function Jewelry() {
                 <p className="mt-4">Prepared by experienced gemological professionals, the report ensures clarity, authenticity, and value transparency for retailers, insurers, and end customers.</p>
 
                 <div className="mt-6 space-x-3">
-                    <Link to="/verify/jewelry" className="inline-block rounded border border-green-500 px-4 py-2 text-green-600">
+                    <Link to="/verify-report" className="inline-block rounded border border-green-500 px-4 py-2 text-green-600">
                         Verify Report
                     </Link>
 

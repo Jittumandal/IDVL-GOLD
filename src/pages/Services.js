@@ -4,37 +4,37 @@ import { Link } from 'react-router-dom';
 export default function Services() {
     const services = [
         {
-            icon: "💎",
+            icon: "/images/DiamondScreening.jpg",
             title: "Diamond Screening",
             description: "Advanced screening and initial assessment of diamonds to determine their characteristics, authenticity, and market value.",
             features: ["Rapid assessment", "Authenticity verification", "Quality grading", "Market value estimation"]
         },
         {
-            icon: "🔍",
+            icon: "/images/DiamondSorting.jpg",
             title: "Diamond Sorting",
             description: "Expert classification and sorting of diamonds by color, clarity, cut, and carat weight using international standards.",
             features: ["Precision classification", "Bulk sorting", "Standard compliance", "Quality assurance"]
         },
         {
-            icon: "📜",
+            icon: "/images/GemIdentificationReport.jpg",
             title: "Gem Identification Report",
             description: "Comprehensive identification and authentication of gemstones with detailed laboratory analysis and certification.",
             features: ["Complete analysis", "Treatment detection", "Unique identification", "Secure certification"]
         },
         {
-            icon: "✅",
+            icon: "/images/CertificationServices.jpg",
             title: "Certification Services",
             description: "Official IDVL certification providing globally recognized documentation and authentication of diamonds and gemstones.",
             features: ["Global recognition", "Secure hologram", "Anti-counterfeit features", "Lifetime validity"]
         },
         {
-            icon: "🎓",
+            icon: "/images/TrainingConsulting.jpg",
             title: "Training & Consulting",
             description: "Professional training programs and expert consulting services for jewelry professionals and gemstone traders.",
             features: ["Expert guidance", "Industry standards", "Practical training", "Custom solutions"]
         },
         {
-            icon: "🔬",
+            icon: "/images/AdvancedTesting.jpg",
             title: "Advanced Testing",
             description: "State-of-the-art laboratory testing using advanced equipment for accurate assessment of gemstone properties.",
             features: ["Latest technology", "High precision", "Comprehensive analysis", "Fast turnaround"]
@@ -59,7 +59,13 @@ export default function Services() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {services.map((service, idx) => (
                             <div key={idx} className="bg-white rounded-lg shadow-md hover:shadow-xl transition p-8 border-t-4 border-green-500">
-                                <div className="text-5xl mb-4">{service.icon}</div>
+                                <div className="mb-4">
+                                    {service.icon.startsWith('/') ? (
+                                        <img src={service.icon} alt={service.title} className="h-full w-full object-contain" />
+                                    ) : (
+                                        <div className="text-5xl">{service.icon}</div>
+                                    )}
+                                </div>
                                 <h3 className="text-2xl font-bold text-gray-900 mb-3">{service.title}</h3>
                                 <p className="text-gray-600 mb-4">{service.description}</p>
                                 <ul className="space-y-2 mb-6">

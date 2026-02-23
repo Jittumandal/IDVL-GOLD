@@ -26,7 +26,7 @@ export default function ColoredStone() {
                 <p className="mt-4">Every report is prepared with complete transparency, ensuring confidence in gemstone transactions across domestic and international markets.</p>
 
                 <div className="mt-6 space-x-3">
-                    <Link to="/verify/colored-stone" className="inline-block rounded border border-green-500 px-4 py-2 text-green-600">
+                    <Link to="/verify-report" className="inline-block rounded border border-green-500 px-4 py-2 text-green-600">
                         Verify Report
                     </Link>
 

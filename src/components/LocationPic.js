@@ -3,24 +3,18 @@ import React, { useEffect, useRef } from "react";
 const testimonials = [
   {
     img: "/images/goldshop.jpg",
-    name: "Delhi, India - 110006",
+    name: "Chandni Chowk, Delhi, 110006",
+  },
+
+  {
+    name: " Nai Wala Estate, Karol Bagh",
+    img: "/images/KarolBagh.jpg",
   },
   {
-    name: "Delhi, India - 110020",
-    img: "/images/goldindia.webp",
-  },
-  {
-    name: "SARC building, Greater Noida",
-    img: "/images/goldshop.jpg",
-  },
-  {
-    name: "Rajendra Nagar, Ghaziabad",
+    name: "Ghaziabaad up 201001",
     img: "/images/goldshop2.jpg",
   },
-  {
-    name: "Sector 39, Gurugram",
-    img: "/images/goldshop.jpg",
-  },
+
 ];
 
 const SLIDE_HEIGHT = 250; // px

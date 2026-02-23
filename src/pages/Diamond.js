@@ -21,7 +21,7 @@ export default function Diamond() {
                 </ul>
                 <p className="mt-4">By documenting the essential value-defining characteristics of each diamond, IDVL ensures a transparent and standardized grading system that supports fair trade practices and global acceptance.</p>
                 <div className="mt-6 space-x-3">
-                    <Link to="/verify/diamond" className="inline-block rounded border border-green-500 px-4 py-2 text-green-600">
+                    <Link to="/verify-report" className="inline-block rounded border border-green-500 px-4 py-2 text-green-600">
                         Verify Report
                     </Link>
 

@@ -8,122 +8,68 @@ const cityLocations = {
       phone: "98719 98212",
       dinein: "10:00 AM - 6:00 PM",
       delivery: "Closed",
-      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.6569058,77.2284571,18z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
+      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.656231,77.2279052,17z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D",
     },
     {
-      address: "1164/2, IV Floor, Kucha Mahajani, Chandni Chowk, Central Delhi, Delhi, India - 110006",
-      phone: "98719 98212",
+      address: "1164. 4th floor kucha majajani chandni chowk delhi 110006",
+      phone: "9871998212",
       dinein: "10:00 AM - 6:00 PM",
       delivery: "Closed",
-      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.6569058,77.2284571,18z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
+      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.656231,77.2279052,17z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D",
     },
     {
-      address: "1164/2, IV Floor, Kucha Mahajani, Chandni Chowk, Central Delhi, Delhi, India - 110006",
-      phone: "98719 98212",
+      address: "Building No 2635-2634, Shop No 209, 2nd Floor, Bank Street, Nai Wala Estate, Karol Bagh",
+      phone: "011-47573467",
       dinein: "10:00 AM - 6:00 PM",
       delivery: "Closed",
-      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.6569058,77.2284571,18z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
+      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.656231,77.2279052,17z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D",
     },
     {
-      address: "1164/2, IV Floor, Kucha Mahajani, Chandni Chowk, Central Delhi, Delhi, India - 110006",
-      phone: "98719 98212",
+      address: "182 2nd floor katra mashroo dariba kalan Chandni chowk delhi 110006",
+      phone: "9871998213",
       dinein: "10:00 AM - 6:00 PM",
       delivery: "Closed",
-      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.6569058,77.2284571,18z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
+      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.656231,77.2279052,17z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D",
     },
     {
-      address: "1164/2, IV Floor, Kucha Mahajani, Chandni Chowk, Central Delhi, Delhi, India - 110006",
-      phone: "98719 98212",
+      address: "1164 4th floor kucha mahajani chandni chowk delhi 110006",
+      phone: "9871998212",
       dinein: "10:00 AM - 6:00 PM",
       delivery: "Closed",
-      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.6569058,77.2284571,18z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
+      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.656231,77.2279052,17z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D",
     },
     {
-      address: "1164/2, IV Floor, Kucha Mahajani, Chandni Chowk, Central Delhi, Delhi, India - 110006",
-      phone: "98719 98212",
+      address: "1163 3rd floor kucha mahajani chandni chowk delhi 110006",
+      phone: "01141047855",
       dinein: "10:00 AM - 6:00 PM",
       delivery: "Closed",
-      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.6569058,77.2284571,18z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
+      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.656231,77.2279052,17z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D",
     },
     {
-      address: "1164/2, IV Floor, Kucha Mahajani, Chandni Chowk, Central Delhi, Delhi, India - 110006",
-      phone: "98719 98212",
+      address: "3239/ 30  1st floor bedan pura karol bagh delhi 110005",
+      phone: "9871998217",
       dinein: "10:00 AM - 6:00 PM",
       delivery: "Closed",
-      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.6569058,77.2284571,18z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
+      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.656231,77.2279052,17z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D",
     },
     {
-      address: "1164/2, IV Floor, Kucha Mahajani, Chandni Chowk, Central Delhi, Delhi, India - 110006",
-      phone: "98719 98212",
+      address: "168 1st floor dasna gate Adora store wali gali Ghaziabaad up 201001",
+      phone: "9211368844",
       dinein: "10:00 AM - 6:00 PM",
       delivery: "Closed",
-      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.6569058,77.2284571,18z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
+      locationLink: "https://www.google.com/maps/place/Dasna+Gate,+Naya+Ganj,+Ghaziabad,+Uttar+Pradesh+201001/@28.6652167,77.4276589,18z/data=!3m1!4b1!4m6!3m5!1s0x390cf1c9f590ab03:0xd4e288458cc57b8b!8m2!3d28.6652144!4d77.4300917!16s%2Fg%2F11x91qcdrs?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D",
     },
-    {
-      address: "1164/2, IV Floor, Kucha Mahajani, Chandni Chowk, Central Delhi, Delhi, India - 110006",
-      phone: "98719 98212",
-      dinein: "10:00 AM - 6:00 PM",
-      delivery: "Closed",
-      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.6569058,77.2284571,18z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
-    },
-    {
-      address: "1164/2, IV Floor, Kucha Mahajani, Chandni Chowk, Central Delhi, Delhi, India - 110006",
-      phone: "98719 98212",
-      dinein: "10:00 AM - 6:00 PM",
-      delivery: "Closed",
-      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.6569058,77.2284571,18z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
-    },
-    {
-      address: "1164/2, IV Floor, Kucha Mahajani, Chandni Chowk, Central Delhi, Delhi, India - 110006",
-      phone: "98719 98212",
-      dinein: "10:00 AM - 6:00 PM",
-      delivery: "Closed",
-      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.6569058,77.2284571,18z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
-    },
-    {
-      address: "1164/2, IV Floor, Kucha Mahajani, Chandni Chowk, Central Delhi, Delhi, India - 110006",
-      phone: "98719 98212",
-      dinein: "10:00 AM - 6:00 PM",
-      delivery: "Closed",
-      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.6569058,77.2284571,18z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
-    },
+
   ],
   Others: [
     {
-      address: "1164/2, IV Floor, Kucha Mahajani, Chandni Chowk, Central Delhi, Delhi, India - 110006",
-      phone: "98719 98212",
+      address: "168 1st floor dasna gate Adora store wali gali Ghaziabaad up 201001",
+      phone: "9211368844",
       dinein: "10:00 AM - 6:00 PM",
       delivery: "Closed",
-      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.6569058,77.2284571,18z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
+      locationLink: "https://www.google.com/maps/place/Dasna+Gate,+Naya+Ganj,+Ghaziabad,+Uttar+Pradesh+201001/@28.6652167,77.4276589,18z/data=!3m1!4b1!4m6!3m5!1s0x390cf1c9f590ab03:0xd4e288458cc57b8b!8m2!3d28.6652144!4d77.4300917!16s%2Fg%2F11x91qcdrs?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D",
     },
-    {
-      address: "1164/2, IV Floor, Kucha Mahajani, Chandni Chowk, Central Delhi, Delhi, India - 110006",
-      phone: "98719 98212",
-      dinein: "10:00 AM - 6:00 PM",
-      delivery: "Closed",
-      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.6569058,77.2284571,18z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
-    },
-    {
-      address: "1164/2, IV Floor, Kucha Mahajani, Chandni Chowk, Central Delhi, Delhi, India - 110006",
-      phone: "98719 98212",
-      dinein: "10:00 AM - 6:00 PM",
-      delivery: "Closed",
-      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.6569058,77.2284571,18z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
-    },
-    {
-      address: "1164/2, IV Floor, Kucha Mahajani, Chandni Chowk, Central Delhi, Delhi, India - 110006",
-      phone: "98719 98212",
-      dinein: "10:00 AM - 6:00 PM",
-      delivery: "Closed",
-      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.6569058,77.2284571,18z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
-    },
-    {
-      address: "1164/2, IV Floor, Kucha Mahajani, Chandni Chowk, Central Delhi, Delhi, India - 110006",
-      phone: "98719 98212",
-      dinein: "10:00 AM - 6:00 PM",
-      delivery: "Closed",
-      locationLink: "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.6569058,77.2284571,18z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
-    },
+
   ],
 
   // Mumbai: [],
@@ -195,13 +141,7 @@ const Location = () => {
         }
       >
         {/* Show mascots image only when no city is selected */}
-        {!selectedCity && (
-          <img
-            src="/img/broccolimascots.svg"
-            alt="Broccoli Mascots"
-            className="pointer-events-none absolute bottom-0 right-0 z-0 hidden h-full w-full object-contain opacity-90 md:block"
-          />
-        )}
+
 
         {!selectedCity ? (
           <div className="z-10 hidden h-full w-full flex-col items-center justify-center md:flex">
