@@ -330,8 +330,7 @@ export default function Navigation() {
                 {mobileServicesOpen && (
                   <div className="pl-3 mt-1 space-y-1">
                     <Link to="/services" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50 font-medium" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>All Services</Link>
-                    <Link to="/services/screening" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>Diamond Screening</Link>
-                    <Link to="/services/sorting" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>Diamond Sorting</Link>
+                    <Link to="/gem-identification-report" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>Gem Identification Report</Link>
                     <Link to="/services/certification" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>Certification</Link>
                   </div>
                 )}
@@ -339,15 +338,15 @@ export default function Navigation() {
 
               <Link to="/contact" className={`py-3 rounded px-2 ${isActive("/contact") ? 'bg-green-50 text-green-600 font-medium' : 'text-gray-700 hover:bg-gray-50'}`} onClick={() => setMenuOpen(false)}>Contact</Link>
               {/* <Link to="/careers" className={`py-3 rounded px-2 ${isActive("/careers") ? 'bg-green-50 text-green-600 font-medium' : 'text-gray-700 hover:bg-gray-50'}`} onClick={() => setMenuOpen(false)}>Careers</Link> */}
-              <Link to="/blog" className={`py-3 rounded px-2 ${isActive("/blog") ? 'bg-green-50 text-green-600 font-medium' : 'text-gray-700 hover:bg-gray-50'}`} onClick={() => setMenuOpen(false)}>Blog</Link>
+              {/* <Link to="/blog" className={`py-3 rounded px-2 ${isActive("/blog") ? 'bg-green-50 text-green-600 font-medium' : 'text-gray-700 hover:bg-gray-50'}`} onClick={() => setMenuOpen(false)}>Blog</Link> */}
 
               <div className="pt-4 border-t mt-4 flex items-center gap-3">
-                <button className="text-gray-700" onClick={() => setMenuOpen(false)}>
+                {/* <button className="text-gray-700" onClick={() => setMenuOpen(false)}>
                   <IoSearch size={18} />
                 </button>
                 <Link to="/login" className="text-gray-700" onClick={() => setMenuOpen(false)}>
                   <FaUser size={18} />
-                </Link>
+                </Link> */}
                 <Link to="/verify-report" className="ml-2 rounded border border-green-500 px-3 py-1 text-green-500" onClick={() => setMenuOpen(false)}>Verify Report</Link>
               </div>
             </nav>

@@ -3,16 +3,28 @@ import RealReviews from "./RealReviews.js"; // or "./RealReviews.jsx" if the fil
 
 const testimonials = [
   {
-    text: "IDVL Hallmarking has been our trusted partner for over 10 years. Their professionalism, accuracy, and quick turnaround time are unmatched in the industry. Highly recommended!",
-    name: "Akash",
-    role: "Owner, Kumar Jewellers, Mumbai",
-    img: "/img/Akash.jpg",
+    text: "Our association with them spans several years, and the excellence in their craftsmanship has always reflected sophistication and precision.Their commitment to quality perfectly aligns with the standards we uphold at our jewellery establishment.",
+    name: "Mr. Chaju Singh",
+    role: "Manager, Shri Ram Hari Ram (Jewellers)",
+    img: "/img/User.png",
   },
   {
-    text: "IDVL Hallmarking has been our trusted partner for over 10 years. Their professionalism, accuracy, and quick turnaround time are unmatched in the industry. Highly recommended!",
-    name: "Aditya Chaudhary",
-    role: "Managing Director, Patel Jewels, Surat",
-    img: "/img/Aditya.jpg",
+    text: "Their work consistently demonstrates elegance, refinement, and meticulous attention to detail. We value their professionalism and the premium finish they deliver every time.",
+    name: "Mr. Khagan Jana",
+    role: "Manager, Gauri Hari",
+    img: "/img/User.png",
+  },
+  {
+    text: "Quality is paramount in our industry, and they have never fallen short of expectations. Their service reflects integrity, reliability, and a deep understanding of luxury presentation.",
+    name: "Mr. Kishor",
+    role: "Manager, Raj Laxmi Jewellers",
+    img: "/img/User.png",
+  },
+  {
+    text: "For years, we have entrusted them with our requirements, and their dedication to excellence remains unwavering. Their craftsmanship truly complements the prestige of our brand.",
+    name: "Mr. Nakul",
+    role: "Manager, Radhey Radhey Jewellers",
+    img: "/img/User.png",
   },
 
 ];
@@ -125,7 +137,7 @@ export const Testimonials = () => {
                     <img
                       src={t.img}
                       alt={t.name}
-                      className="h-14 w-14 rounded-full border-2 border-green-500 object-cover"
+                      className="h-14 w-14 rounded-full  border-green-500 object-cover"
                     />
                     <div>
                       <div className="text-lg font-bold text-green-700">

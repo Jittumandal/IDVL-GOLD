@@ -3,16 +3,22 @@ import React, { useEffect, useRef } from "react";
 const testimonials = [
 
   {
-    text: "Excellent service and transparent processes. IDVL Hallmarking has helped us maintain the highest quality standards for our jewelry business. Their XRF testing is incredibly accurate.",
-    name: "Amit Patel",
-    role: "Managing Director, Patel Jewels, Surat",
-    img: "/img/Adeesh.jpg",
+    text: "Their attention to precision and premium standards makes them a trusted partner in our journey of maintaining excellence. We appreciate their consistent delivery and refined approach.",
+    name: "Mr. Narender",
+    role: "Managing Director, Dalbeer Sons",
+    img: "/img/User.png",
   },
   {
-    text: "Excellent service and transparent processes. IDVL Hallmarking has helped us maintain the highest quality standards for our jewelry business. Their XRF testing is incredibly accurate",
-    name: "Priya Sharma",
-    role: "Managing Director, Patel Jewels, Surat",
-    img: "/img/Kinjalika.jpg",
+    text: "In the world of fine jewellery, presentation and authenticity matter immensely. Their services embody both, making our long-standing association highly valued.",
+    name: "Mr Nitin",
+    role: "Managing Director, Aggarwal Abhushan Bhandar",
+    img: "/img/User.png",
+  },
+  {
+    text: "Their professionalism, superior quality, and commitment to perfection set them apart. We confidently recommend their services for those who seek nothing but excellence.",
+    name: "Mr Nitin",
+    role: "Manager, Kuber Jewellers",
+    img: "/img/User.png",
   },
 ];
 
@@ -109,7 +115,7 @@ const MainSlider = () => {
                 <img
                   src={item.img}
                   alt={item.name}
-                  className="h-14 w-14 rounded-full border-2 border-cyan-500 object-cover"
+                  className="h-14 w-14 rounded-full  border-cyan-500 object-cover"
                 />
                 <div>
                   <div className="text-lg font-bold text-cyan-700">

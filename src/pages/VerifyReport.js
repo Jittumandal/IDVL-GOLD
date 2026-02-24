@@ -1,38 +1,98 @@
-import React from "react";
-import { MdDocumentScanner } from "react-icons/md";
+import React, { useState } from "react";
 
 export default function VerifyReport() {
+    const [reportType, setReportType] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [agreed, setAgreed] = useState(false);
+
+    const handleSend = () => {
+        if (reportType && phoneNumber && agreed) {
+            console.log("Report Type:", reportType);
+            console.log("Phone:", phoneNumber);
+        }
+    };
+
     return (
-        <div className="mx-auto max-w-3xl px-4 py-12">
-            <div className="flex flex-col items-center gap-6">
-                <img src="/img/verify-report-screenshot.svg" alt="verify" className="h-12 w-12" />
-                <h1 className="text-3xl font-semibold">Verify Your Report</h1>
-            </div>
-
-            <div className="mt-8 space-y-8">
-                <div className="rounded border border-gray-200 bg-white p-6 shadow-sm">
-                    <h2 className="mb-4 text-lg font-medium">Report Number</h2>
-                    <div className="flex items-center gap-3">
-                        <input
-                            type="text"
-                            placeholder="Enter Your Report No."
-                            className="w-full rounded border border-gray-200 px-3 py-2 text-sm shadow-sm"
-                        />
-                        <button className="rounded bg-gray-700 px-4 py-2 text-white">Verify</button>
-                    </div>
-                    <div className="mt-4">
-                        <button type="button" className="rounded border border-gray-300 bg-white px-4 py-2 text-sm">SKU Lookup</button>
-                    </div>
-                </div>
-
-                <div className="rounded border border-gray-200 bg-white p-6 shadow-sm">
-                    <h2 className="mb-4 text-lg font-medium">Scan QR Code</h2>
-                    <div className="flex flex-col items-center gap-4 py-8">
-                        <div className="h-28 w-28 rounded border border-gray-300 bg-gray-50 p-4 text-center">
-                            <MdDocumentScanner size={48} className="mx-auto text-gray-400" />
+        <div className="min-h-screen w-full flex">
+            <div className="w-full h-screen">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-0 h-full">
+                    {/* Left Side - Illustration */}
+                    <div className="hidden md:flex bg-teal-400 flex-col items-center justify-center p-12 text-white overflow-hidden">
+                        <div className="mb-8 text-center">
+                            <div className="p-8 mb-8 w-full h-full flex items-center justify-center">
+                                <img
+                                    src="/img/report.svg"
+                                    alt="IDVL Lab"
+                                    className="w-full h-full object-cover "
+                                />
+                            </div>
                         </div>
-                        <button type="button" className="rounded border border-gray-700 px-4 py-2">Request Camera Permissions</button>
-                        <button type="button" className="text-sm text-gray-600 underline bg-transparent border-0 cursor-pointer p-0">Scan an Image File</button>
+                        <h3 className="text-3xl font-bold mb-6 text-center">Report Check</h3>
+                        <p className="text-center mb-4 text-md leading-relaxed opacity-95 ">
+                            IDVL reports represent the highest standards of accuracy, consistency, and integrity in gemological evaluation.
+                        </p>
+                        <p className="text-center mb-4 text-md leading-relaxed opacity-95 ">
+                            Now, IDVL Report Verification is available for all IDVL reports, offering you an added layer of confidence and security. With our easy-to-use Report Verification system, you can quickly and conveniently confirm that the details on your certificate match the information securely stored in the official IDVL report database.
+                        </p>
+                        <p className="text-center mb-4 text-md leading-relaxed opacity-95 ">
+                            This service ensures authenticity, transparency, and trust — giving you complete peace of mind with every IDVL certified gemstone or jewellery report.
+                        </p>
+                    </div>
+
+                    {/* Right Side - Form */}
+                    <div className="bg-white flex flex-col justify-center items-center px-12 py-12 overflow-hidden">
+                        <div className="max-w-lg w-full ">
+                            <h1 className="text-5xl font-bold text-gray-900 mb-4 text-center">Verify Report</h1>
+                            <p className="text-gray-600 text-base mb-8">
+                                Verify your report to access your orders, special offers, and more.
+                            </p>
+
+                            <div className="space-y-6">
+                                {/* Report Type Select */}
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Report Type
+                                    </label>
+                                    <select
+                                        value={reportType}
+                                        onChange={(e) => setReportType(e.target.value)}
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 text-gray-700 bg-white"
+                                    >
+                                        <option value="">Select Report Type</option>
+                                        <option value="diamond">Diamond Report</option>
+                                        <option value="colored-stone">Colored Stone Report</option>
+                                        <option value="jewelry">Jewelry Report</option>
+                                        <option value="gem-identification">Gem Identification Report</option>
+                                    </select>
+                                </div>
+
+                                {/* Certification Number Input */}
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Certification Number
+                                    </label>
+                                    <input
+                                        type="text"
+                                        placeholder="Enter Certification No."
+                                        value={phoneNumber}
+                                        onChange={(e) => setPhoneNumber(e.target.value)}
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 text-gray-700 placeholder-gray-400"
+                                    />
+                                </div>
+
+
+
+                                {/* Verify Report Button */}
+                                <button
+                                    onClick={handleSend}
+                                    disabled={!reportType || !phoneNumber || !agreed}
+                                    className="bg-green-500 w-full   text-white font-semibold py-4 rounded-lg transition duration-200 mt-8 text-lg"
+                                >
+                                    Verify Report
+                                </button>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
