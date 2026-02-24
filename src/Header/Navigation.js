@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaUser } from "react-icons/fa";
-import { IoSearch } from "react-icons/io5";
+
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);

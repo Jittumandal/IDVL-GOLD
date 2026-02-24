@@ -3,12 +3,11 @@ import React, { useState } from "react";
 export default function VerifyReport() {
     const [reportType, setReportType] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
-    const [agreed, setAgreed] = useState(false);
 
     const handleSend = () => {
-        if (reportType && phoneNumber && agreed) {
+        if (reportType && phoneNumber) {
             console.log("Report Type:", reportType);
-            console.log("Phone:", phoneNumber);
+            console.log("Certification Number:", phoneNumber);
         }
     };
 
@@ -94,8 +93,8 @@ export default function VerifyReport() {
                                 {/* Verify Report Button */}
                                 <button
                                     onClick={handleSend}
-                                    disabled={!reportType || !phoneNumber || !agreed}
-                                    className="bg-green-500 w-full courser  text-white font-semibold py-4 rounded-lg transition duration-200 mt-8 text-lg"
+                                    disabled={!reportType || !phoneNumber}
+                                    className="bg-green-500 hover:bg-green-600 disabled:bg-gray-300 disabled:cursor-not-allowed cursor-pointer w-full text-white font-semibold py-4 rounded-lg transition duration-200 mt-8 text-lg"
                                 >
                                     Verify Report
                                 </button>
