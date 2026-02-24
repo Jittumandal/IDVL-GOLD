@@ -331,3 +331,7 @@ header {
 .text_title_color {
     color: #E0B84C;
 }
+
+.bg-teal-400 {
+    background: rgb(228 235 220) !important;
+}

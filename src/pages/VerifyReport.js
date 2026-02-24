@@ -17,7 +17,7 @@ export default function VerifyReport() {
             <div className="w-full h-screen">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-0 h-full">
                     {/* Left Side - Illustration */}
-                    <div className="hidden md:flex bg-teal-400 flex-col items-center justify-center p-12 text-white overflow-hidden">
+                    <div className="hidden md:flex bg-teal-400 flex-col items-center justify-center p-12 text-dark overflow-hidden">
                         <div className="mb-8 text-center">
                             <div className="p-8 mb-8 w-full h-full flex items-center justify-center">
                                 <img
@@ -27,7 +27,7 @@ export default function VerifyReport() {
                                 />
                             </div>
                         </div>
-                        <h3 className="text-3xl font-bold mb-6 text-center">Report Check</h3>
+                        <h3 className="text-5xl font-bold mb-6 text-center uppercase">Report Check</h3>
                         <p className="text-center mb-4 text-md leading-relaxed opacity-95 ">
                             IDVL reports represent the highest standards of accuracy, consistency, and integrity in gemological evaluation.
                         </p>
@@ -53,16 +53,25 @@ export default function VerifyReport() {
                                     <label className="block text-sm font-medium text-gray-700 mb-2">
                                         Report Type
                                     </label>
+
                                     <select
                                         value={reportType}
                                         onChange={(e) => setReportType(e.target.value)}
                                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 text-gray-700 bg-white"
                                     >
-                                        <option value="">Select Report Type</option>
-                                        <option value="diamond">Diamond Report</option>
-                                        <option value="colored-stone">Colored Stone Report</option>
-                                        <option value="jewelry">Jewelry Report</option>
-                                        <option value="gem-identification">Gem Identification Report</option>
+                                        <option value="">Select Type</option>
+                                        <option value="1">Jewellery</option>
+                                        <option value="2">Gems</option>
+                                        <option value="3">Diamond</option>
+                                        <option value="4">Lab Grown Jewellery</option>
+                                        <option value="5">Lab Grown Diamond</option>
+                                        <option value="6">Studded Gem Testing Report</option>
+                                        <option value="8"> Uncut Jewelry Report</option>
+                                        <option value="9">Screening Report</option>
+                                        <option value="10">Uncut Diamond Jewellery</option>
+                                        <option value="11">Lab-Grown Gemstone</option>
+                                        <option value="12">Studded Gem Testing Report</option>
+                                        <option value="13">Gem Testing (Origin) Report</option>
                                     </select>
                                 </div>
 
@@ -86,7 +95,7 @@ export default function VerifyReport() {
                                 <button
                                     onClick={handleSend}
                                     disabled={!reportType || !phoneNumber || !agreed}
-                                    className="bg-green-500 w-full   text-white font-semibold py-4 rounded-lg transition duration-200 mt-8 text-lg"
+                                    className="bg-green-500 w-full courser  text-white font-semibold py-4 rounded-lg transition duration-200 mt-8 text-lg"
                                 >
                                     Verify Report
                                 </button>
