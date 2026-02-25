@@ -131,7 +131,7 @@ export default function Navigation() {
                         className="block px-4 py-2 hover:bg-green-50 font-medium text-gray-900"
                         onClick={() => setReportsOpen(false)}
                       >
-                        All Reports
+                        Grading & Reports
                       </Link>
                       <Link
                         to="/reports/colored-stone"
@@ -189,20 +189,27 @@ export default function Navigation() {
 
                   {servicesOpen && (
                     <div className="absolute left-0 top-full z-40 mt-2 w-56 rounded border border-gray-200 bg-white py-2 shadow-lg">
+
                       <Link
-                        to="/services"
-                        className="block px-4 py-2 hover:bg-green-50 font-medium text-gray-900"
+                        to="/services/screening"
+                        className="block px-4 py-2 hover:bg-green-50"
                         onClick={() => setServicesOpen(false)}
                       >
-                        All Services
+                        Diamond Screening
                       </Link>
-
+                      <Link
+                        to="/services/sorting"
+                        className="block px-4 py-2 hover:bg-green-50"
+                        onClick={() => setServicesOpen(false)}
+                      >
+                        Diamond Sorting
+                      </Link>
                       <Link
                         to="/gem-identification-report"
                         className="block px-4 py-2 hover:bg-green-50"
                         onClick={() => setServicesOpen(false)}
                       >
-                        Gem Identification Report
+                        Gem Identification
                       </Link>
                       <Link
                         to="/services/certification"
@@ -210,6 +217,20 @@ export default function Navigation() {
                         onClick={() => setServicesOpen(false)}
                       >
                         Certification
+                      </Link>
+                      <Link
+                        to="/services/training"
+                        className="block px-4 py-2 hover:bg-green-50"
+                        onClick={() => setServicesOpen(false)}
+                      >
+                        Training & Consulting
+                      </Link>
+                      <Link
+                        to="/services/advanced-testing"
+                        className="block px-4 py-2 hover:bg-green-50"
+                        onClick={() => setServicesOpen(false)}
+                      >
+                        Advanced Testing
                       </Link>
                     </div>
                   )}
@@ -285,13 +306,11 @@ export default function Navigation() {
           onClick={() => setMenuOpen(false)}
         />
 
-        <aside aria-hidden={!menuOpen} className={`fixed top-0 left-0 h-full w-80 bg-white shadow-2xl transform transition-transform duration-300 pointer-events-auto z-50 ${menuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-          <div className="flex items-center justify-between p-4 border-b">
+        <aside aria-hidden={!menuOpen} className={`fixed top-0 left-0 h-full w-80 bg-white shadow-2xl transform transition-transform duration-300 pointer-events-auto z-50 flex flex-col ${menuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+          <div className="flex items-center justify-between p-4 border-b flex-shrink-0">
             <div className="flex items-center gap-3">
               <img src="/img/logo.png" alt="logo" className="h-10 w-10 object-contain" />
-              <div>
-                <div className="font-semibold">IDVL</div>
-              </div>
+              <div className="font-semibold">IDVL</div>
             </div>
             <button className="text-gray-700 p-2 rounded hover:bg-gray-100" onClick={() => setMenuOpen(false)} aria-label="Close menu">
               <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -300,19 +319,19 @@ export default function Navigation() {
             </button>
           </div>
 
-          <div className="p-4 overflow-y-auto h-full">
-            <nav className="flex flex-col space-y-2">
-              <Link to="/" className={`py-3 rounded px-2 ${isActive("/") ? 'bg-green-50 text-green-600 font-medium' : 'text-gray-700 hover:bg-gray-50'}`} onClick={() => setMenuOpen(false)}>Diamond 4Cs</Link>
-              <Link to="/about" className={`py-3 rounded px-2 ${isActive("/about") ? 'bg-orange-50 text-orange-600 font-medium' : 'text-gray-700 hover:bg-gray-50'}`} onClick={() => setMenuOpen(false)}>About</Link>
+          <nav className="flex-1 overflow-y-auto">
+            <div className="p-4 space-y-2">
+              <Link to="/" className={`block py-3 rounded px-2 ${isActive("/") ? 'bg-green-50 text-green-600 font-medium' : 'text-gray-700 hover:bg-gray-50'}`} onClick={() => setMenuOpen(false)}>Diamond 4Cs</Link>
+              <Link to="/about" className={`block py-3 rounded px-2 ${isActive("/about") ? 'bg-orange-50 text-orange-600 font-medium' : 'text-gray-700 hover:bg-gray-50'}`} onClick={() => setMenuOpen(false)}>About</Link>
+
               <div>
                 <button className="w-full flex items-center justify-between py-3 px-2 rounded text-gray-700 hover:bg-gray-50" onClick={() => setMobileReportsOpen(!mobileReportsOpen)}>
                   <span className={`${isActive("/reports") ? 'text-orange-600 font-medium' : ''}`}>Grading & Reports</span>
                   <svg className={`h-4 w-4 transition-transform ${mobileReportsOpen ? 'transform rotate-180' : ''}`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
                 </button>
-
                 {mobileReportsOpen && (
                   <div className="pl-3 mt-1 space-y-1">
-                    <Link to="/reports" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50 font-medium" onClick={() => { setMenuOpen(false); setMobileReportsOpen(false); }}>All Reports</Link>
+                    <Link to="/reports" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50 font-medium" onClick={() => { setMenuOpen(false); setMobileReportsOpen(false); }}>Grading & Reports</Link>
                     <Link to="/reports/colored-stone" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileReportsOpen(false); }}>Colored Stone Report</Link>
                     <Link to="/reports/jewelry" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileReportsOpen(false); }}>Jewelry Report</Link>
                     <Link to="/reports/diamond" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileReportsOpen(false); }}>Diamond Reports</Link>
@@ -325,31 +344,26 @@ export default function Navigation() {
                   <span className={`${isActive("/services") ? 'text-green-600 font-medium' : ''}`}>Services</span>
                   <svg className={`h-4 w-4 transition-transform ${mobileServicesOpen ? 'transform rotate-180' : ''}`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
                 </button>
-
                 {mobileServicesOpen && (
                   <div className="pl-3 mt-1 space-y-1">
-                    <Link to="/services" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50 font-medium" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>All Services</Link>
+                    <Link to="/services/screening" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>Diamond Screening</Link>
+                    <Link to="/services/sorting" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>Diamond Sorting</Link>
                     <Link to="/gem-identification-report" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>Gem Identification Report</Link>
                     <Link to="/services/certification" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>Certification</Link>
+                    <Link to="/services/training" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>Training & Consulting</Link>
+                    <Link to="/services/advanced-testing" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileServicesOpen(false); }}>Advanced Testing</Link>
                   </div>
                 )}
               </div>
 
-              <Link to="/contact" className={`py-3 rounded px-2 ${isActive("/contact") ? 'bg-green-50 text-green-600 font-medium' : 'text-gray-700 hover:bg-gray-50'}`} onClick={() => setMenuOpen(false)}>Contact</Link>
-              {/* <Link to="/careers" className={`py-3 rounded px-2 ${isActive("/careers") ? 'bg-green-50 text-green-600 font-medium' : 'text-gray-700 hover:bg-gray-50'}`} onClick={() => setMenuOpen(false)}>Careers</Link> */}
-              {/* <Link to="/blog" className={`py-3 rounded px-2 ${isActive("/blog") ? 'bg-green-50 text-green-600 font-medium' : 'text-gray-700 hover:bg-gray-50'}`} onClick={() => setMenuOpen(false)}>Blog</Link> */}
+              <Link to="/contact" className={`block py-3 rounded px-2 ${isActive("/contact") ? 'bg-green-50 text-green-600 font-medium' : 'text-gray-700 hover:bg-gray-50'}`} onClick={() => setMenuOpen(false)}>Contact</Link>
+            </div>
+            <div className="p-4 flex-shrink-0">
+              <Link to="/verify-report" className="block text-center rounded border border-green-500 px-3 py-2 text-green-500 hover:bg-green-50" onClick={() => setMenuOpen(false)}>Verify Report</Link>
+            </div>
+          </nav>
 
-              <div className="pt-4 border-t mt-4 flex items-center gap-3">
-                {/* <button className="text-gray-700" onClick={() => setMenuOpen(false)}>
-                  <IoSearch size={18} />
-                </button>
-                <Link to="/login" className="text-gray-700" onClick={() => setMenuOpen(false)}>
-                  <FaUser size={18} />
-                </Link> */}
-                <Link to="/verify-report" className="ml-2 rounded border border-green-500 px-3 py-1 text-green-500" onClick={() => setMenuOpen(false)}>Verify Report</Link>
-              </div>
-            </nav>
-          </div>
+
         </aside>
       </div>
     </>

@@ -192,9 +192,9 @@ const About = () => {
           <p className="text-xl mb-8 text-gray-100">
             Trust IDVL for accurate, transparent, and globally recognized diamond and gemstone certification.
           </p>
-          <button type="button" className="px-12 py-4 bg-white text-orange-500 font-bold text-lg rounded hover:bg-gray-100 transition">
-            Start Certification
-          </button>
+          <Link to="/verify-report" className="px-12 py-4 bg-white text-orange-500 font-bold text-lg rounded hover:bg-gray-100 transition">            Start Certification
+          </Link>
+
         </div>
       </section>
     </div>

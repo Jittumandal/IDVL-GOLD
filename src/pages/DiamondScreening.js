@@ -4,12 +4,30 @@ export default function DiamondScreening() {
     return (
         <main className="min-h-screen bg-white mt-16">
             {/* Hero Section */}
-            <section className="bg-gradient-to-r from-green-600 to-green-700 text-white py-16 px-4">
-                <div className="max-w-6xl mx-auto">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4">Diamond Screening</h1>
-                    <p className="text-xl text-green-50">Advanced initial assessment of diamonds with rapid evaluation and quality determination</p>
+            <div className="minhscreen3 flex items-center justify-center relative overflow-hidden px-4">
+                <div className="absolute inset-0 z-0">
+                    <div
+                        className="absolute inset-0 h-full bg-cover bg-center"
+                        style={{
+                            backgroundImage: "url('/images/DiamondScreening.jpg')",
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center'
+                        }}>
+                    </div>
+                    <div className="absolute inset-0 h-full bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
                 </div>
-            </section>
+
+                <div className="relative z-10 w-full max-w-6xl mx-auto">
+                    <div className="w-full">
+                        <div className="space-y-6">
+                            <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">Diamond Screening</h1>
+                            <p className="text-lg text-gray-100">Advanced initial assessment of diamonds with rapid evaluation and quality determination.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             {/* Overview */}
             <section className="py-16 px-4">

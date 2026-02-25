@@ -4,18 +4,7 @@ import "animate.css";
 export default function HeroSection() {
   return (
     <div className="Main_Heading_bg relative min-h-[400px] overflow-hidden md:min-h-screen">
-      {/* Background Video */}
-      {/* <iframe
-        title="Hero background video"
-        src="https://player.vimeo.com/video/1134601259?background=1&autoplay=1&muted=1&loop=1&autopause=0&player_id=0"
-        className="absolute inset-0 -z-20 h-full w-full object-cover brightness-50"
-        crossOrigin="anonymous"
-        style={{ width: "100%" }}
-        allow="autoplay; fullscreen; picture-in-picture"
-        allowFullScreen
-        style={{ width: "100%", height: "100%" }}
-        aria-hidden="true"
-      /> */}
+
       <video
         autoPlay
         muted
@@ -27,8 +16,8 @@ export default function HeroSection() {
         crossOrigin="anonymous"
         style={{ width: "100%" }}
       >
-        <source src={encodeURI("https://cdn.pixabay.com/video/2020/03/30/34590-402333480_large.mp4")} type="video/mp4" />
-        <source src={encodeURI("/img/greenox.webm")} type="video/webm" />
+        <source src={encodeURI("/img/gold.mp4")} type="video/mp4" />
+        <source src={encodeURI("/img/gold.webm")} type="video/webm" />
       </video>
       {/* dark overlay between video and content */}
       {/* overlay using the attached light/gray color with adjustable opacity */}
@@ -50,7 +39,7 @@ export default function HeroSection() {
           <p className="animate__animated animate__fadeInRight mb-10 mt-12 text-white text-gray-600 md:text-4xl">
             The 4Cs—Color, Clarity, Cut, and Carat Weight—represent the internationally recognized standard for assessing diamond quality
           </p>
-          <form className="animate__animated animate__zoomIn mb-4 mt-10 flex w-full flex-col items-center justify-center gap-4 px-4 sm:flex-row sm:px-0">
+          {/* <form className="animate__animated animate__zoomIn mb-4 mt-10 flex w-full flex-col items-center justify-center gap-4 px-4 sm:flex-row sm:px-0">
             <input
               placeholder="Enter email or phone"
               className="rounded1xl w-full px-6 py-3 focus:outline-none sm:w-80"
@@ -62,7 +51,7 @@ export default function HeroSection() {
             >
               GET NOW
             </button>
-          </form>
+          </form> */}
         </div>
 
         {/* Animated Hero Section */}

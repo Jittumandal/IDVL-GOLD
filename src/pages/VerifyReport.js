@@ -1,13 +1,23 @@
 import React, { useState } from "react";
+import { MdUpload } from "react-icons/md";
 
 export default function VerifyReport() {
     const [reportType, setReportType] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
+    const [uploadedFile, setUploadedFile] = useState(null);
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setUploadedFile(file);
+        }
+    };
 
     const handleSend = () => {
         if (reportType && phoneNumber) {
             console.log("Report Type:", reportType);
             console.log("Certification Number:", phoneNumber);
+            console.log("Uploaded File:", uploadedFile);
         }
     };
 
@@ -41,7 +51,7 @@ export default function VerifyReport() {
                     {/* Right Side - Form */}
                     <div className="bg-white flex flex-col justify-center items-center px-12 py-12 overflow-hidden">
                         <div className="max-w-lg w-full ">
-                            <h1 className="text-5xl font-bold text-gray-900 mb-4 text-center">Verify Report</h1>
+                            <h1 className="text_title_color  text-5xl font-bold text-gray-900 mb-4 text-center">Verify Report</h1>
                             <p className="text-gray-600 text-base mb-8">
                                 Verify your report to access your orders, special offers, and more.
                             </p>
@@ -87,16 +97,45 @@ export default function VerifyReport() {
                                     />
                                 </div>
 
+                                {/* 50/50 Split - Upload and Verify Button */}
+                                <div className="grid grid-cols-2 gap-4 mt-8">
+                                    {/* Left Side - Upload Button (50%) */}
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Upload Report
+                                        </label>
+                                        <div className="relative">
+                                            <input
+                                                type="file"
+                                                accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+                                                onChange={handleFileChange}
+                                                className="hidden"
+                                                id="file-upload"
+                                            />
+                                            <label htmlFor="file-upload" className="flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold py-4 px-3 rounded-lg cursor-pointer transition duration-200 w-full text-sm">
+                                                <MdUpload size={20} className="inline" />
+                                                <span className="truncate">{uploadedFile ? uploadedFile.name : "Upload"}</span>
+                                            </label>
+                                        </div>
+                                        {uploadedFile && (
+                                            <p className="text-xs text-green-600 mt-2">✓ File selected</p>
+                                        )}
+                                    </div>
 
-
-                                {/* Verify Report Button */}
-                                <button
-                                    onClick={handleSend}
-                                    disabled={!reportType || !phoneNumber}
-                                    className="bg-green-500 hover:bg-green-600 disabled:bg-gray-300 disabled:cursor-not-allowed cursor-pointer w-full text-white font-semibold py-4 rounded-lg transition duration-200 mt-8 text-lg"
-                                >
-                                    Verify Report
-                                </button>
+                                    {/* Right Side - Verify Report Button (50%) */}
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Verify Report
+                                        </label>
+                                        <button
+                                            onClick={handleSend}
+                                            disabled={!reportType || !phoneNumber}
+                                            className="bg-green-500 hover:bg-green-600 disabled:bg-gray-300 disabled:cursor-not-allowed cursor-pointer w-full text-white font-semibold py-4 rounded-lg transition duration-200 text-sm"
+                                        >
+                                            Verify
+                                        </button>
+                                    </div>
+                                </div>
 
                             </div>
                         </div>

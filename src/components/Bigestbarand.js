@@ -1,7 +1,7 @@
 import React from "react";
 import wdc from "../images/chetna_round_logo.png";
 import wji from "../images/gaur.png";
-// import cibjo from "../images/cibjo.webp";
+import cibjo from "../images/chetna.png";
 // import rjc from "../images/rjc.webp";
 // import nica from "../images/n-ica-2.webp";
 
@@ -9,7 +9,7 @@ const BiggestBrands = () => {
   const brands = [
     { name: "christ", logo: wdc },
     { name: "mangalmay", logo: wji },
-    // { name: "amity", logo: cibjo },
+    { name: "amity", logo: cibjo },
     // { name: "shivnadar", logo: rjc },
     // { name: "ashoka", logo: nica },
   ];
@@ -49,10 +49,10 @@ const BiggestBrands = () => {
           <p className="text-lg text-gray-800">
             For Corporate Catering Enquiries Call us at{" "}
             <a
-              href="tel:+91 7078548120"
+              href="tel:+919999804777"
               className="font-semibold text-green-600 hover:underline"
             >
-              +91 7078548120
+              91 99998 04777
             </a>
           </p>
         </div>

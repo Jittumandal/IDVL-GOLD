@@ -21,6 +21,8 @@ const Certification = lazyWithRetry(() => import("../pages/Certification"));
 const ColoredStone = lazyWithRetry(() => import("../pages/ColoredStone"));
 const Jewelry = lazyWithRetry(() => import("../pages/Jewelry"));
 const Diamond = lazyWithRetry(() => import("../pages/Diamond"));
+const TrainingConsulting = lazyWithRetry(() => import("../pages/TrainingConsulting"));
+const AdvancedTesting = lazyWithRetry(() => import("../pages/AdvancedTesting"));
 
 export default function AppRoutes() {
   return (
@@ -46,6 +48,8 @@ export default function AppRoutes() {
           <Route path="/services/screening" element={<DiamondScreening />} />
           <Route path="/services/sorting" element={<DiamondSorting />} />
           <Route path="/services/certification" element={<Certification />} />
+          <Route path="/services/training" element={<TrainingConsulting />} />
+          <Route path="/services/advanced-testing" element={<AdvancedTesting />} />
         </Routes>
       </Suspense>
     </ErrorBoundary>
