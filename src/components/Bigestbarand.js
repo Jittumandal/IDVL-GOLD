@@ -1,17 +1,17 @@
 import React from "react";
-import wdc from "../images/wdc.webp";
-import wji from "../images/wji.webp";
-import cibjo from "../images/cibjo.webp";
-import rjc from "../images/rjc.webp";
-import nica from "../images/n-ica-2.webp";
+import wdc from "../images/chetna_round_logo.png";
+import wji from "../images/gaur.png";
+// import cibjo from "../images/cibjo.webp";
+// import rjc from "../images/rjc.webp";
+// import nica from "../images/n-ica-2.webp";
 
 const BiggestBrands = () => {
   const brands = [
     { name: "christ", logo: wdc },
     { name: "mangalmay", logo: wji },
-    { name: "amity", logo: cibjo },
-    { name: "shivnadar", logo: rjc },
-    { name: "ashoka", logo: nica },
+    // { name: "amity", logo: cibjo },
+    // { name: "shivnadar", logo: rjc },
+    // { name: "ashoka", logo: nica },
   ];
 
   return (

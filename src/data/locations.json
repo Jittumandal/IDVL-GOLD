@@ -1,0 +1,87 @@
+{
+  "New Delhi": [
+    {
+      "address": "Shop No. 1164/2, 4th Floor, Kucha Mahajani, Chandni Chowk, Delhi - 110006, India",
+      "phone": "9871998212",
+      "phone2": "9871998213",
+      "dinein": "11:00 AM - 7:00 PM",
+      "BusinessHours": "Monday - Saturday:",
+      "time": "11:00 AM - 7:00 PM",
+      "closedDay": "Sunday",
+      "closedStatus": "Closed",
+      "delivery": "Closed",
+      "locationLink": "https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/"
+    },
+    {
+      "address": "Building No. 2635-2634, Shop No. 209, 2nd Floor, Bank Street, Karol Bagh, New Delhi - 110005, India",
+      "phone": "9871998214",
+      "phone2": "9871998215",
+      "dinein": "11:00 AM - 7:00 PM",
+      "BusinessHours": "Tuesday - Sunday :",
+      "time": "11:00 AM - 7:00 PM",
+      "closedDay": "Monday",
+      "closedStatus": "Closed",
+      "delivery": "Wednesday",
+      "locationLink": "https://www.google.com/maps/search/Bank+Street,+Karol+Bagh,+New+Delhi/"
+    },
+    {
+      "address": "Shop No. 182, 2nd Floor, Katra Mashroo, Dariba Kalan, Chandni Chowk, Delhi - 110006, India",
+      "phone": "1147007022",
+      "phone2": "9871998218",
+      "dinein": "11:00 AM - 7:00 PM",
+      "BusinessHours": "Monday - Saturday:",
+      "time": "11:00 AM - 7:00 PM",
+      "closedDay": "Sunday",
+      "closedStatus": "Closed",
+      "delivery": "Closed",
+      "locationLink": "https://www.google.com/maps/search/Dariba+Kalan,+Chandni+Chowk,+Delhi/"
+    },
+    {
+      "address": "Shop No.1163, 3rd Floor, Kucha Mahajani, Chandni Chowk, Delhi - 110006, India",
+      "phone": "9871998216",
+      "phone2": "9871998217",
+      "dinein": "11:00 AM - 7:00 PM",
+      "BusinessHours": "Monday - Saturday:",
+      "time": "11:00 AM - 7:00 PM",
+      "closedDay": "Sunday",
+      "closedStatus": "Closed",
+      "delivery": "Closed",
+      "locationLink": "https://www.google.com/maps/search/Kucha+Mahajani,+Chandni+Chowk,+Delhi/"
+    },
+    {
+      "address": "Shop No. 3239/30, 1st Floor, Bedanpura, Karol Bagh, New Delhi - 110005, India",
+      "phone": "9871998217",
+      "dinein": "11:00 AM - 7:00 PM",
+      "BusinessHours": "Tuesday  - Sunday :",
+      "time": "11:00 AM - 7:00 PM",
+      "closedDay": "Monday",
+      "closedStatus": "Closed",
+      "delivery": "Closed",
+      "locationLink": "https://www.google.com/maps/search/Bedanpura,+Karol+Bagh,+New+Delhi/"
+    },
+    {
+      "address": "Shop No. 168, 1st Floor, Dasna Gate, Adora Store Wali Gali, Naya Ganj, Ghaziabad, Uttar Pradesh - 201001, India",
+      "phone": "9211368844",
+      "dinein": "11:00 AM - 7:00 PM",
+      "BusinessHours": "Wednesday  - Monday:",
+      "time": "11:00 AM - 7:00 PM",
+      "closedDay": "Tuesday",
+      "closedStatus": "Closed",
+      "delivery": "Closed",
+      "locationLink": "https://www.google.com/maps/place/Dasna+Gate,+Naya+Ganj,+Ghaziabad,+Uttar+Pradesh+201001/"
+    }
+  ],
+  "Others": [
+    {
+      "address": "Shop No. 168, 1st Floor, Dasna Gate, Adora Store Wali Gali, Naya Ganj, Ghaziabad, Uttar Pradesh - 201001, India",
+      "phone": "9211368844",
+      "dinein": "11:00 AM - 7:00 PM",
+      "BusinessHours": "Wednesday  - Monday:",
+      "time": "11:00 AM - 7:00 PM",
+      "closedDay": "Tuesday",
+      "closedStatus": "Closed",
+      "delivery": "Tuesday ",
+      "locationLink": "https://www.google.com/maps/place/Dasna+Gate,+Naya+Ganj,+Ghaziabad,+Uttar+Pradesh+201001/"
+    }
+  ]
+}

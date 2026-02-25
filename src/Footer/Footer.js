@@ -111,19 +111,19 @@ const Footer = () => {
             <div className="quiklinks mb-2 font-semibold">Contact Info</div>
             <ul className="space-y-1 text-sm text-gray-300">
               <li>
-                <Link to="#" className="hover:text-white mb-2 flex items-center">
+                <Link target="_blank" to="tel:+919999804777" className="hover:text-white mb-2 flex items-center">
                   <MdOutlinePhone size={24} className="inline mr-2 text_title_color " />
                   +91 99998 04777
                 </Link>
               </li>
               <li>
-                <Link to="#" className="hover:text-white mb-2 flex items-center">
+                <Link to="mailto:info@idvl.com" className="hover:text-white mb-2 flex items-center">
                   <TfiEmail size={24} className="inline mr-2 text_title_color " />
-                  info@idvlhallmarking.com
+                  info@idvl.com
                 </Link>
               </li>
               <li>
-                <Link to="#" className="hover:text-white mb-2 flex items-center">
+                <Link target="_blank" to="https://www.google.com/maps/search/1164%2F2,+IV+Floor,+Kucha+Mahajani,+Chandni+Chowk,+Central+Delhi,+Delhi,+India+-+110006/@28.6560846,77.2292432,18z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDIyMy4wIKXMDSoASAFQAw%3D%3D" className="hover:text-white mb-2 flex items-center">
                   <IoLocationSharp size={24} className="inline mr-2 text_title_color " />
                   Delhi, India - 110006
                 </Link>

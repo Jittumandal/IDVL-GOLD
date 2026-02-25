@@ -66,10 +66,9 @@ export default function VerifyReport() {
                                         <option value="5">Lab Grown Diamond</option>
                                         <option value="6">Studded Gem Testing Report</option>
                                         <option value="8"> Uncut Jewelry Report</option>
-                                        <option value="9">Screening Report</option>
+                                        <option value="9">Testing Report</option>
                                         <option value="10">Uncut Diamond Jewellery</option>
                                         <option value="11">Lab-Grown Gemstone</option>
-                                        <option value="12">Studded Gem Testing Report</option>
                                         <option value="13">Gem Testing (Origin) Report</option>
                                     </select>
                                 </div>
