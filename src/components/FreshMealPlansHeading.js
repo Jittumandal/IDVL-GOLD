@@ -4,9 +4,9 @@ const FreshMealPlansHeading = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const words = [
-    { text: "Colored Stone Report", className: "text-[#E0B84C]" },
-    { text: "Jewelry Report", className: "text-[#E0B84C]" },
-    { text: "Diamond Reports", className: "text-[#E0B84C]" },
+    { text: "Coloured Stone Report", className: "text-[#E0B84C]" },
+    { text: "Jewellery Report", className: "text-[#E0B84C]" },
+    { text: "Diamond Report", className: "text-[#E0B84C]" },
 
   ];
 

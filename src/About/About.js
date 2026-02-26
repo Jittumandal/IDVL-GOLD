@@ -21,7 +21,7 @@ const About = () => {
           <div className="w-full ">
             <div className="space-y-6">
               <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white leading-tight">
-                International Diamond Verification Lab
+                International Diamond Vefication Lab
 
               </h1>
               <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white leading-tight">

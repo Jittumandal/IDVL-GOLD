@@ -5,11 +5,11 @@ const blocks = [
   { type: 'image', img: '/images/DiamondColor.png' },
   {
     type: 'text',
-    title: "Diamond Color",
+    title: "Diamond Colour",
     paragraphs: [
-      "When discussing diamond color, we are typically referring to the degree of color absence within the stone. Even the slightest variation in tone can significantly influence a diamond’s overall quality, appearance, and market value. While these differences may appear subtle to the untrained eye, they are measurable and scientifically evaluated through professional gemological standards.",
-      "At IDVL, diamond color assessment is never based on opinion. It is determined through strict grading procedures, controlled lighting environments, and expert analysis to ensure precision and consistency.",
-      "Historically, before standardized grading systems were established, diamonds were often described using informal terms such as “water-clear” for colorless stones, clarity as “with or without flaws,” and cut simply as “well made.” Among these characteristics, only carat weight had long-standing consistency, dating back several centuries.",
+      "When discussing diamond colour, we are typically referring to the degree of colour absence within the stone. Even the slightest variation in tone can significantly influence a diamond’s overall quality, appearance, and market value. While these differences may appear subtle to the untrained eye, they are measurable and scientifically evaluated through professional gemological standards.",
+      "At IDVL, diamond colour assessment is never based on opinion. It is determined through strict grading procedures, controlled lighting environments, and expert analysis to ensure precision and consistency.",
+      "Historically, before standardized grading systems were established, diamonds were often described using informal terms such as “water-clear” for colourless stones, clarity as “with or without flaws,” and cut simply as “well made.” Among these characteristics, only carat weight had long-standing consistency, dating back several centuries.",
 
 
     ],

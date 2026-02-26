@@ -87,7 +87,7 @@ export default function Contact() {
               <p className="mb-2">For information, contact <a href="mailto:info@syndratech.com" className="text-green-600">info@idvlhallmarking.com</a></p>
               <p className="mb-2"><strong>Business Hours </strong>
               </p>
-              <p className="mb-2"> <a href="tel:+918744090761" className="text-green-600">Monday - Saturday: 10:00 AM - 6:00 PM
+              <p className="mb-2"> <a href="tel:+918744090761" className="text-green-600">Monday - Saturday: 11:00 AM - 7:00 PM
               </a></p>
               <p className="mb-2"> <a href="tel:+918744090761" className="text-green-600">Sunday: Closed
               </a></p>

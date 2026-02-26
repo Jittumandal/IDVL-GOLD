@@ -59,7 +59,7 @@ export default function ReportVerified() {
                 {/* Right content column */}
                 <div className="w-full md:w-1/2 flex flex-col p-8 md:p-12">
                     {/* Header */}
-                    <div className="bg-yellow-50 rounded-lg px-6 py-4 mb-6 border-l-4 border-yellow-400">
+                    <div className="bg-yellow-50 rounded-lg px-6 py-4 mt-6 mb-6 border-l-4 border-yellow-400">
                         <h2 className="text-xl font-bold text-yellow-800">
                             {report.type}
                         </h2>

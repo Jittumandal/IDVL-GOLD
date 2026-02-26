@@ -11,7 +11,7 @@ const testimonials = [
     img: "/images/KarolBagh.jpg",
   },
   {
-    name: "Ghaziabaad up 201001",
+    name: "Ghaziabad UP 201001",
     img: "/images/goldshop2.jpg",
   },
 

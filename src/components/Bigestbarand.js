@@ -47,12 +47,12 @@ const BiggestBrands = () => {
         {/* Contact Info */}
         <div className="text-center">
           <p className="text-lg text-gray-800">
-            For Corporate Catering Enquiries Call us at{" "}
+            Services Providers{" "}
             <a
               href="tel:+919999804777"
               className="font-semibold text-green-600 hover:underline"
             >
-              91 99998 04777
+              +91-99998 04777
             </a>
           </p>
         </div>

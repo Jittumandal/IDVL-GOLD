@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const reports = [
   {
-    title: "Colored Stone Report",
+    title: "Coloured Stone Report",
     description:
       "IDVL conducts detailed gemological examinations to accurately determine a gemstone’s species, variety, and authenticity. Using advanced testing methods—including microscopic analysis, spectroscopy, and other specialized techniques—our experts identify both natural and laboratory-grown materials with precision.",
     img: "/images/colored_diamond_report.png",
@@ -11,15 +11,15 @@ const reports = [
     verifyLink: "/verify/colored-stone",
   },
   {
-    title: "Jewelry Report",
+    title: "Jewellery Report",
     description:
-      "IDVL is committed to excellence in jewelry grading and certification. Our Jewelry Reports provide a comprehensive evaluation of finished jewelry articles, combining gemstone analysis with metal assessment and craftsmanship review.",
+      "IDVL is committed to excellence in Jewellery grading and certification. Our Jewelry Reports provide a comprehensive evaluation of finished jewelry articles, combining gemstone analysis with metal assessment and craftsmanship review.",
     img: "/images/jewlery_reports.png",
     learnLink: "/reports/jewelry",
     verifyLink: "/verify/jewelry",
   },
   {
-    title: "Diamond Reports",
+    title: "Diamond Report",
     description: "IDVL provides comprehensive grading reports for loose diamonds, clearly determining whether a diamond is natural or laboratory-grown. Our diamond grading process follows internationally recognized standards and strict quality control procedures.",
     img: "/images/diamond-reports.png",
     learnLink: "/reports/diamond",
