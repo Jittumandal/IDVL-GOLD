@@ -12,6 +12,8 @@ const Termservice = lazyWithRetry(() => import("../pages/Termservice"));
 const Termsconditions = lazyWithRetry(() => import("../pages/Termsconditions"));
 const Privacypolicy = lazyWithRetry(() => import("../pages/Privacypolicy"));
 const VerifyReport = lazyWithRetry(() => import("../pages/VerifyReport"));
+const ReportGenerated = lazyWithRetry(() => import("../pages/ReportGenerated"));
+const ReportVerified = lazyWithRetry(() => import("../pages/ReportVerified"));
 const Reports = lazyWithRetry(() => import("../pages/Reports"));
 const GemIdentificationReport = lazyWithRetry(() => import("../pages/GemIdentificationReport"));
 const Services = lazyWithRetry(() => import("../pages/Services"));
@@ -39,6 +41,8 @@ export default function AppRoutes() {
           <Route path="/termsconditions" element={<Termsconditions />} />
           <Route path="/privacypolicy" element={<Privacypolicy />} />
           <Route path="/verify-report" element={<VerifyReport />} />
+          <Route path="/report-generated" element={<ReportGenerated />} />
+          <Route path="/report-verified" element={<ReportVerified />} />
           <Route path="/reports" element={<Reports />} />
           <Route path="/reports/colored-stone" element={<ColoredStone />} />
           <Route path="/reports/jewelry" element={<Jewelry />} />

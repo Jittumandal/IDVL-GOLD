@@ -1,24 +1,40 @@
 import React, { useState } from "react";
-import { MdUpload } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+import { verifyReport } from "../data/reportData";
 
 export default function VerifyReport() {
+    const navigate = useNavigate();
     const [reportType, setReportType] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState("");
-    const [uploadedFile, setUploadedFile] = useState(null);
+    const [certificationNumber, setCertificationNumber] = useState("");
+    const [error, setError] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
-    const handleFileChange = (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            setUploadedFile(file);
-        }
-    };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setError("");
+        setIsLoading(true);
 
-    const handleSend = () => {
-        if (reportType && phoneNumber) {
-            console.log("Report Type:", reportType);
-            console.log("Certification Number:", phoneNumber);
-            console.log("Uploaded File:", uploadedFile);
-        }
+        setTimeout(() => {
+            if (!reportType || !certificationNumber) {
+                setError(
+                    "Please select a report type and enter a certification number."
+                );
+                setIsLoading(false);
+                return;
+            }
+
+            const report = verifyReport(reportType, certificationNumber);
+
+            if (report) {
+                navigate("/report-verified", { state: { report } });
+            } else {
+                setError(
+                    "Report not found. Please check your certification number and try again."
+                );
+            }
+
+            setIsLoading(false);
+        }, 1000);
     };
 
     return (
@@ -48,98 +64,80 @@ export default function VerifyReport() {
                         </p>
                     </div>
 
-                    {/* Right Side - Form */}
-                    <div className="bg-white flex flex-col justify-center items-center px-12 py-12 overflow-hidden">
-                        <div className="max-w-lg w-full ">
-                            <h1 className="text_title_color  text-5xl font-bold text-gray-900 mb-4 text-center">Verify Report</h1>
-                            <p className="text-gray-600 text-base mb-8">
+                    {/* Right Side Form */}
+                    <div className="flex items-center justify-center w-full h-full">
+                        <div className="bg-white   w-full max-w-lg">
+                            <h1 class="text_title_color  text-5xl font-bold text-gray-900 mb-4 text-center">Verify Report</h1>
+                            <p className="text-gray-500 mb-6 text-center">
                                 Verify your report to access your orders, special offers, and more.
                             </p>
 
-                            <div className="space-y-6">
-                                {/* Report Type Select */}
+                            {error && (
+                                <div className="bg-red-100 text-red-700 px-4 py-3 rounded-lg mb-6">
+                                    {error}
+                                </div>
+                            )}
+
+                            <form onSubmit={handleSubmit} className="space-y-6">
+
+                                {/* Report Type */}
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                    <label className="block text-sm font-medium mb-2 text-gray-700">
                                         Report Type
                                     </label>
-
                                     <select
                                         value={reportType}
                                         onChange={(e) => setReportType(e.target.value)}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 text-gray-700 bg-white"
+                                        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-yellow-500 focus:outline-none"
+                                        required
                                     >
                                         <option value="">Select Type</option>
-                                        <option value="1">Jewellery</option>
-                                        <option value="2">Gems</option>
-                                        <option value="3">Diamond</option>
-                                        <option value="4">Lab Grown Jewellery</option>
-                                        <option value="5">Lab Grown Diamond</option>
-                                        <option value="6">Studded Gem Testing Report</option>
-                                        <option value="8"> Uncut Jewelry Report</option>
-                                        <option value="9">Testing Report</option>
-                                        <option value="10">Uncut Diamond Jewellery</option>
-                                        <option value="11">Lab-Grown Gemstone</option>
-                                        <option value="13">Gem Testing (Origin) Report</option>
+                                        <option value="goldTesting">
+                                            IDVL Gold  Certificate
+                                        </option>
                                     </select>
                                 </div>
 
-                                {/* Certification Number Input */}
+                                {/* Certification Number */}
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                    <label className="block text-sm font-medium mb-2 text-gray-700">
                                         Certification Number
                                     </label>
                                     <input
                                         type="text"
+                                        value={certificationNumber}
+                                        onChange={(e) =>
+                                            setCertificationNumber(e.target.value.toUpperCase())
+                                        }
                                         placeholder="Enter Certification No."
-                                        value={phoneNumber}
-                                        onChange={(e) => setPhoneNumber(e.target.value)}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 text-gray-700 placeholder-gray-400"
+                                        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-yellow-500 focus:outline-none"
+                                        required
                                     />
                                 </div>
 
-                                {/* 50/50 Split - Upload and Verify Button */}
-                                <div className="grid grid-cols-2 gap-4 mt-8">
-                                    {/* Left Side - Upload Button (50%) */}
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                                            Upload Report
-                                        </label>
-                                        <div className="relative">
-                                            <input
-                                                type="file"
-                                                accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
-                                                onChange={handleFileChange}
-                                                className="hidden"
-                                                id="file-upload"
-                                            />
-                                            <label htmlFor="file-upload" className="flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold py-4 px-3 rounded-lg cursor-pointer transition duration-200 w-full text-sm">
-                                                <MdUpload size={20} className="inline" />
-                                                <span className="truncate">{uploadedFile ? uploadedFile.name : "Upload"}</span>
-                                            </label>
-                                        </div>
-                                        {uploadedFile && (
-                                            <p className="text-xs text-green-600 mt-2">✓ File selected</p>
-                                        )}
-                                    </div>
+                                {/* Button */}
+                                <button
+                                    type="submit"
+                                    disabled={isLoading}
+                                    className="w-full bg-yellow-600 hover:bg-yellow-700 text-white py-3 rounded-lg font-semibold transition duration-300 shadow-md"
+                                >
+                                    {isLoading ? "Verifying..." : "Verify Report"}
+                                </button>
+                            </form>
 
-                                    {/* Right Side - Verify Report Button (50%) */}
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                                            Verify Report
-                                        </label>
-                                        <button
-                                            onClick={handleSend}
-                                            disabled={!reportType || !phoneNumber}
-                                            className="bg-green-500 hover:bg-green-600 disabled:bg-gray-300 disabled:cursor-not-allowed cursor-pointer w-full text-white font-semibold py-4 rounded-lg transition duration-200 text-sm"
-                                        >
-                                            Verify
-                                        </button>
-                                    </div>
-                                </div>
-
+                            {/* Sample Certs */}
+                            <div className="mt-8 bg-gray-100 p-4 rounded-lg text-sm text-gray-600">
+                                <p className="font-semibold mb-2">
+                                    Sample Certification Numbers:
+                                </p>
+                                <p>
+                                    <strong>Gold Testing:</strong> 5152, 5153, 5154, 5155, 5156
+                                </p>
                             </div>
-                        </div>
-                    </div>
+
+                        </div> {/* end white box */}
+                    </div> {/* end flex wrapper */}
+
                 </div>
             </div>
         </div>
