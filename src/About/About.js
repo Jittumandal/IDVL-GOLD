@@ -59,9 +59,9 @@ const About = () => {
                 Each report is prepared using scientific methods and internationally accepted grading standards.
               </p>
               <div className="flex gap-4">
-                <button type="button" className="px-8 py-3 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition">
+                {/* <button type="button" className="px-8 py-3 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition">
                   Learn More
-                </button>
+                </button> */}
                 <Link to="/contact" className="inline-block px-8 py-3 border-2 border-orange-500 text-orange-500 font-semibold rounded hover:bg-orange-50 transition">
                   Contact Us
                 </Link>

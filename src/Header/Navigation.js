@@ -138,21 +138,21 @@ export default function Navigation() {
                         className="block px-4 py-2 hover:bg-green-50"
                         onClick={() => setReportsOpen(false)}
                       >
-                        Colored Stone Report
+                        Coloured Stone Report
                       </Link>
                       <Link
                         to="/reports/jewelry"
                         className="block px-4 py-2 hover:bg-green-50"
                         onClick={() => setReportsOpen(false)}
                       >
-                        Jewelry Report
+                        Jewellery Report
                       </Link>
                       <Link
                         to="/reports/diamond"
                         className="block px-4 py-2 hover:bg-green-50"
                         onClick={() => setReportsOpen(false)}
                       >
-                        Diamond Reports
+                        Diamond Report
                       </Link>
                     </div>
                   )}

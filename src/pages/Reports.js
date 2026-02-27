@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Reports() {
     const blocks = [
@@ -100,12 +101,12 @@ export default function Reports() {
                     <p className="text-xl mb-8">
                         Get your diamonds graded by IDVL's certified expert gemologists today.
                     </p>
-                    <button
-                        type="button"
-                        className="px-12 py-4 bg-white text-orange-500 font-bold text-lg rounded hover:bg-gray-100 transition"
+                    <Link
+                        to="/contact"
+                        className="inline-block px-12 py-4 bg-white text-orange-500 font-bold text-lg rounded hover:bg-gray-100 transition"
                     >
                         Submit for Grading
-                    </button>
+                    </Link>
                 </div>
             </section>
         </div>

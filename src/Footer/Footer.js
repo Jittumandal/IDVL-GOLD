@@ -58,17 +58,13 @@ const Footer = () => {
           <div>
             <div className="quiklinks mb-2 font-semibold">Services</div>
             <ul className="space-y-1 text-sm text-gray-300">
-              <li>
-                <Link to="/services" className="hover:text-white">
-                  All Services
-                </Link>
-              </li>
+
               <li>
                 <Link to="/gem-identification-report" className="hover:text-white">
                   Gem Identification Report
                 </Link>
               </li>
-              {/* <li>
+              <li>
                 <Link to="/services/screening" className="hover:text-white">
                   Diamond Screening
                 </Link>
@@ -77,10 +73,20 @@ const Footer = () => {
                 <Link to="/services/sorting" className="hover:text-white">
                   Diamond Sorting
                 </Link>
-              </li> */}
+              </li>
               <li>
                 <Link to="/services/certification" className="hover:text-white">
                   Certification
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/training" className="hover:text-white">
+                  Training & Consulting
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/advanced-testing" className="hover:text-white">
+                  Advanced Testing
                 </Link>
               </li>
             </ul>
