@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 export default function Diamond() {
     return (
-        <main className="w-full mt-16">
-            <div className="flex h-screen items-center">
+        <main className="w-full mt-16 bg-white">
+            <div className="flex flex-col md:flex-row md:h-screen md:items-center">
                 {/* Left Content Section */}
-                <div className="w-1/2 px-12 py-16">
+                <div className="w-full md:w-1/2 px-4 md:px-12 py-8 md:py-16 md:overflow-y-auto md:max-h-screen">
                     <h1 className="text-3xl font-semibold text-gray-900">Diamond Grading Reports</h1>
                     <p className="mt-4 text-gray-700">
                         IDVL provides comprehensive grading reports for loose diamonds, clearly determining whether a diamond is natural or laboratory-grown. Our diamond grading process follows internationally recognized standards and strict quality control procedures.
@@ -30,7 +30,7 @@ export default function Diamond() {
                 </div>
 
                 {/* Right Image Section - Full Screen Height */}
-                <div className="w-1/2 h-full overflow-hidden">
+                <div className="w-full md:w-1/2 h-64 md:h-screen overflow-hidden">
                     <img
                         src="/img/DiamondReports.png"
                         alt="Diamond Grading"
