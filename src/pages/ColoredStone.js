@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 export default function ColoredStone() {
@@ -11,7 +11,6 @@ export default function ColoredStone() {
                     <p className="mt-4 text-gray-700">
                         IDVL carefully examines each gemstone to accurately determine its species and variety. Our experts provide comprehensive identification details
                         and clearly disclose any detected treatments or enhancements. Every IDVL Coloured Stone Report is prepared with precision and transparency.
-
                         IDVL conducts detailed gemological examinations to accurately determine a gemstone's species, variety, and authenticity. Using advanced testing methods—including microscopic analysis, spectroscopy, and other specialized techniques—our experts identify both natural and laboratory-grown
                         materials with precision.
                     </p>
