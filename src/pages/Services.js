@@ -30,7 +30,7 @@ export default function Services() {
         {
             icon: "/images/TrainingConsulting.jpg",
             title: "Training & Consulting",
-            description: "Professional training programs and expert consulting services for jewelry professionals and gemstone traders.",
+            description: "Professional training programs and expert consulting services for jewellery professionals and gemstone traders.",
             features: ["Expert guidance", "Industry standards", "Practical training", "Custom solutions"]
         },
         {

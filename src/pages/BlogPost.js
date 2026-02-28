@@ -127,7 +127,7 @@ export default function BlogPost() {
                 <li><a href="#hallmark">Hallmark Certification</a></li>
                 <li><a href="#diamond">Diamond 4Cs Guide</a></li>
                 <li><a href="#investment">Gold Investment Tips</a></li>
-                <li><a href="#care">Jewelry Care Guide</a></li>
+                <li><a href="#care">Jewellery Care Guide</a></li>
               </ol>
             )}
           </div>
@@ -139,22 +139,22 @@ export default function BlogPost() {
 
           <section id="hallmark">
             <h2 className="text-2xl font-bold">Hallmark Certification</h2>
-            <p>Hallmarking verifies authenticity and ensures your gold jewelry meets certified purity standards.</p>
+            <p>Hallmarking verifies authenticity and ensures your gold jewellery meets certified purity standards.</p>
           </section>
 
           <section id="diamond">
             <h2 className="text-2xl font-bold">Diamond 4Cs Guide</h2>
-            <p>Cut, Color, Clarity, and Carat determine diamond quality and pricing in the global jewelry market.</p>
+            <p>Cut, Color, Clarity, and Carat determine diamond quality and pricing in the global jewellery market.</p>
           </section>
 
           <section id="investment">
             <h2 className="text-2xl font-bold">Gold Investment Tips</h2>
-            <p>Certified gold and hallmark jewelry provide secure investment value and long-term wealth protection.</p>
+            <p>Certified gold and hallmark jewellery provide secure investment value and long-term wealth protection.</p>
           </section>
 
           <section id="care">
-            <h2 className="text-2xl font-bold">Jewelry Care Guide</h2>
-            <p>Proper cleaning and storage maintain shine and preserve the long-term quality of your jewelry.</p>
+            <h2 className="text-2xl font-bold">Jewellery Care Guide</h2>
+            <p>Proper cleaning and storage maintain shine and preserve the long-term quality of your jewellery.</p>
           </section>
         </article>
 

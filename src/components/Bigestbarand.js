@@ -25,7 +25,7 @@ const BiggestBrands = () => {
         {/* Subheading */}
         <h3 className="mb-12 text-center text-2xl text-gray-800">
           One of the World's Largest Independent Grading and Accreditation Services Providers <br />
-          <i style={{ fontSize: 16 }}>Join a global community of diamond, gemstone and jewelry professionals and enthusiasts</i>
+          <i style={{ fontSize: 16 }}>Join a global community of diamond, gemstone and jewellery professionals and enthusiasts</i>
         </h3>
 
         {/* Brands Logo Grid */}

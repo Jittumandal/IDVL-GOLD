@@ -21,7 +21,7 @@ const DiamondScreening = lazyWithRetry(() => import("../pages/DiamondScreening")
 const DiamondSorting = lazyWithRetry(() => import("../pages/DiamondSorting"));
 const Certification = lazyWithRetry(() => import("../pages/Certification"));
 const ColoredStone = lazyWithRetry(() => import("../pages/ColoredStone"));
-const Jewelry = lazyWithRetry(() => import("../pages/Jewelry"));
+const Jewellery = lazyWithRetry(() => import("../pages/Jewellery"));
 const Diamond = lazyWithRetry(() => import("../pages/Diamond"));
 const TrainingConsulting = lazyWithRetry(() => import("../pages/TrainingConsulting"));
 const AdvancedTesting = lazyWithRetry(() => import("../pages/AdvancedTesting"));
@@ -45,7 +45,7 @@ export default function AppRoutes() {
           <Route path="/report-verified" element={<ReportVerified />} />
           <Route path="/reports" element={<Reports />} />
           <Route path="/reports/colored-stone" element={<ColoredStone />} />
-          <Route path="/reports/jewelry" element={<Jewelry />} />
+          <Route path="/reports/jewellery" element={<Jewellery />} />
           <Route path="/reports/diamond" element={<Diamond />} />
           <Route path="/gem-identification-report" element={<GemIdentificationReport />} />
           <Route path="/services" element={<Services />} />

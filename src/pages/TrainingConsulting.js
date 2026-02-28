@@ -27,7 +27,7 @@ export default function TrainingConsulting() {
                             </h1>
 
                             <p className="text-lg text-gray-100">
-                                Professional training programs and expert consulting services for jewelry professionals and gemstone traders.
+                                Professional training programs and expert consulting services for jewellery professionals and gemstone traders.
                             </p>
                         </div>
                     </div>

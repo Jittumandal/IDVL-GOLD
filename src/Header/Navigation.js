@@ -141,7 +141,7 @@ export default function Navigation() {
                         Coloured Stone Report
                       </Link>
                       <Link
-                        to="/reports/jewelry"
+                        to="/reports/jewellery"
                         className="block px-4 py-2 hover:bg-green-50"
                         onClick={() => setReportsOpen(false)}
                       >
@@ -333,7 +333,7 @@ export default function Navigation() {
                   <div className="pl-3 mt-1 space-y-1">
                     <Link to="/reports" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50 font-medium" onClick={() => { setMenuOpen(false); setMobileReportsOpen(false); }}>Grading & Reports</Link>
                     <Link to="/reports/colored-stone" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileReportsOpen(false); }}>Colored Stone Report</Link>
-                    <Link to="/reports/jewelry" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileReportsOpen(false); }}>Jewelry Report</Link>
+                    <Link to="/reports/jewellery" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileReportsOpen(false); }}>Jewellery Report</Link>
                     <Link to="/reports/diamond" className="block py-2 text-gray-700 rounded px-2 hover:bg-gray-50" onClick={() => { setMenuOpen(false); setMobileReportsOpen(false); }}>Diamond Reports</Link>
                   </div>
                 )}

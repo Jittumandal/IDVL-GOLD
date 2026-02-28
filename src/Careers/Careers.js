@@ -70,7 +70,7 @@ export const Careers = () => {
             International Diamond Verified Lab (IDVL) is a trusted diamond and
             gemstone testing laboratory providing accurate certification,
             grading, and verification services. Our mission is to ensure
-            transparency, authenticity, and trust within the global jewelry
+            transparency, authenticity, and trust within the global jewellery
             industry.
           </p>
         </div>

@@ -36,7 +36,7 @@ const blocks = [
     type: 'text', title: "Diamond Carat Weight",
     paragraphs: [
       "Carat weight is the most precise and consistently measured of the Diamond 4Cs. While often associated with a diamond’s size, carat actually refers to the stone’s weight. Larger diamonds are typically rarer, which can increase their value; however, carat weight alone does not determine overall worth. Two diamonds of the same carat weight may differ significantly in value depending on their cut, color, and clarity.",
-      "At IDVL, carat weight is measured using highly accurate digital instruments to ensure precision and reliability. Our grading process follows consistent and repeatable standards, allowing buyers and industry professionals to confidently compare diamonds.",
+      "At IDVL, carat weight is measured using highly accurate digital instruments to ensure precision and reliability. Our grading process follows consistent and repeatable standards, allowing buyers and industry professionals.",
       "Every IDVL report clearly documents all four value-defining characteristics—Cut, Color, Clarity, and Carat Weight—providing transparent and trustworthy information for informed purchasing and investment decisions.",
     ]
   },

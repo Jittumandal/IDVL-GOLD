@@ -13,10 +13,10 @@ const reports = [
   {
     title: "Jewellery Report",
     description:
-      "IDVL is committed to excellence in Jewellery grading and certification. Our Jewelry Reports provide a comprehensive evaluation of finished jewelry articles, combining gemstone analysis with metal assessment and craftsmanship review.",
+      "IDVL is committed to excellence in Jewellery grading and certification. Our Jewellery Reports provide a comprehensive evaluation of finished jewellery articles, combining gemstone analysis with metal assessment and craftsmanship review.",
     img: "/images/jewlery_reports.png",
-    learnLink: "/reports/jewelry",
-    verifyLink: "/verify/jewelry",
+    learnLink: "/reports/jewellery",
+    verifyLink: "/verify/jewellery",
   },
   {
     title: "Diamond Report",
