@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createReportWithImage } from '../utils/api';
-import { isAdminAuthenticated, removeAdminToken, getAdminInfo } from '../utils/auth';
+import { isAdminAuthenticated } from '../utils/auth';
 import { CERTIFICATION_TYPES, getCertificationTypeLabel } from '../utils/certificationTypes';
 
 function UploadImage() {
@@ -16,7 +16,6 @@ function UploadImage() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [lastCreatedReport, setLastCreatedReport] = useState(null);
 
-  const adminInfo = getAdminInfo();
   const apiBaseUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
   const assetBaseUrl = apiBaseUrl.replace(/\/api\/?$/, '');
 
