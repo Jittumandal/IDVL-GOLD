@@ -25,6 +25,9 @@ const Jewellery = lazyWithRetry(() => import("../pages/Jewellery"));
 const Diamond = lazyWithRetry(() => import("../pages/Diamond"));
 const TrainingConsulting = lazyWithRetry(() => import("../pages/TrainingConsulting"));
 const AdvancedTesting = lazyWithRetry(() => import("../pages/AdvancedTesting"));
+const UploadImage = lazyWithRetry(() => import("../pages/UploadImage"));
+// admin login page
+const Login = lazyWithRetry(() => import("../pages/Login"));
 
 export default function AppRoutes() {
   return (
@@ -54,6 +57,10 @@ export default function AppRoutes() {
           <Route path="/services/certification" element={<Certification />} />
           <Route path="/services/training" element={<TrainingConsulting />} />
           <Route path="/services/advanced-testing" element={<AdvancedTesting />} />
+          {/* ADMIN LOGIN */}
+          <Route path="/login" element={<Login />} />
+          {/* ADMIN UPLOAD IMAGE */}
+          <Route path="/upload-image" element={<UploadImage />} />
         </Routes>
       </Suspense>
     </ErrorBoundary>

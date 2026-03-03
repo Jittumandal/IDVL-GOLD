@@ -335,3 +335,13 @@ header {
 .bg-teal-400 {
     background: rgb(228 235 220) !important;
 }
+
+.login {
+    background-color: #b45309;
+    color: #fff;
+    padding: 8px 20px;
+}
+
+.login:hover {
+    color: #b45309;
+}

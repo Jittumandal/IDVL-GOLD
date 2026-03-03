@@ -1,197 +1,185 @@
-import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { generateAndDownloadPDF, generateGoldTestingPDF } from "../utils/pdfGenerator";
-import { verifyReport } from "../data/reportData";
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { verifyReportAPI } from '../utils/api';
+import { getCertificationTypeLabel } from '../utils/certificationTypes';
 
-export default function ReportVerified() {
+function ReportVerified() {
     const location = useLocation();
     const navigate = useNavigate();
     const [isDownloading, setIsDownloading] = useState(false);
+    const [reportData, setReportData] = useState(location.state?.report || null);
+    const [fetchError, setFetchError] = useState('');
 
-    let report = location.state?.report;
+    const apiBaseUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+    const assetBaseUrl = apiBaseUrl.replace(/\/api\/?$/, '');
 
-    if (!report) {
-        const params = new URLSearchParams(location.search);
-        const reportType = params.get("reportType");
-        const certNumber = params.get("certNumber");
-        if (reportType && certNumber) {
-            report = verifyReport(reportType, certNumber);
-        }
-    }
+    const report = reportData;
 
-    if (!report) {
-        navigate("/verify-report");
-        return null;
-    }
+    const imageSrc = report?.image
+        ? report.image.startsWith('http')
+            ? report.image
+            : `${assetBaseUrl}${report.image}`
+        : '';
 
-    const handleDownloadReport = () => {
-        setIsDownloading(true);
-        setTimeout(() => {
+    useEffect(() => {
+        const fetchReportByCert = async () => {
+            const params = new URLSearchParams(location.search);
+            const certNumber = params.get('certNumber');
+
+            if (!certNumber) return;
+
             try {
-                if (report.type === "XRF Gold Testing Certificate") {
-                    generateGoldTestingPDF(report);
-                } else {
-                    generateAndDownloadPDF(report);
-                }
+                const result = await verifyReportAPI(certNumber);
+                setReportData(result);
             } catch (error) {
-                alert("Error downloading report.");
+                setFetchError(error.message || 'Report not found.');
             }
+        };
+
+        if (!report) {
+            fetchReportByCert();
+        }
+    }, [location.search, report]);
+
+    const handleDownloadImage = async () => {
+        if (!imageSrc) return;
+
+        setIsDownloading(true);
+
+        try {
+            const response = await fetch(imageSrc);
+            const blob = await response.blob();
+            const blobUrl = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+
+            // determine extension from MIME type
+            let extension = 'bin';
+            if (blob.type.includes('png')) extension = 'png';
+            else if (blob.type.includes('webp')) extension = 'webp';
+            else if (blob.type.includes('jpeg') || blob.type.includes('jpg')) extension = 'jpg';
+            else if (blob.type === 'application/pdf') extension = 'pdf';
+
+            link.href = blobUrl;
+            link.download = `${report.certificationNumber || 'report-file'}.${extension}`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(blobUrl);
+        } catch (error) {
+            alert('Error downloading file. Please try again.');
+        } finally {
             setIsDownloading(false);
-        }, 800);
+        }
     };
 
-    return (
-        <section className="py-12 bg-gray-50 min-h-screen">
-            <main className="min-h-screen flex flex-col md:flex-row bg-white">
-                {/* Left side illustration similar to VerifyReport */}
-                <div className="hidden md:flex bg-teal-400 flex-col items-center justify-center p-12 text-dark overflow-hidden w-full md:w-1/2">
-                    <div className="mb-8 text-center w-full">
-                        <div className="p-8 mb-8 w-full h-full flex items-center justify-center">
-                            <img
-                                src={report.image}
-                                alt={report.type}
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                    </div>
-                </div>
-
-                {/* Right content column */}
-                <div className="w-full md:w-1/2 flex flex-col p-8 md:p-12">
-                    {/* Header */}
-                    <div className="bg-yellow-50 rounded-lg px-6 py-4 mt-6 mb-6 border-l-4 border-yellow-400">
-                        <h2 className="text-xl font-bold text-yellow-800">
-                            {report.type}
-                        </h2>
-                        <p className="text-sm text-gray-600 mt-1">
-                            Certificate ID: {report.certificationNumber}
-                        </p>
+    if (!report) {
+        return (
+            <section className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+                <div className="bg-white p-8 rounded-xl shadow-lg text-center max-w-md w-full">
+                    <div className="text-red-600 mb-4 font-medium">
+                        {fetchError || 'Report not found. Please verify again.'}
                     </div>
 
-                    {/* Details card */}
-                    <div className="bg-white rounded-lg shadow-lg p-6 mb-6 flex-grow overflow-y-auto border border-gray-200">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {/* left column */}
-                            <div className="pr-10">
-                                <h3 className="font-semibold mb-3 text-gray-800">
-                                    Customer Information
-                                </h3>
-                                <div className="space-y-2">
-                                    <div className="flex justify-between">
-                                        <span className="text-gray-600 text-sm">Name</span>
-                                        <p className="font-medium text-gray-900">{report.customerName}</p>
-                                    </div>
-                                    <div className="flex justify-between">
-                                        <span className="text-gray-600 text-sm">Date</span>
-                                        <p className="font-medium text-gray-900">{report.date}</p>
-                                    </div>
-                                </div>
-
-                                {report.details && (
-                                    <>
-                                        <h3 className="font-semibold mb-3 text-gray-800 mt-6">
-                                            Product Details
-                                        </h3>
-                                        <div className="space-y-2">
-                                            {Object.entries(report.details).map(([key, value]) => (
-                                                <div className="flex justify-between" key={key}>
-                                                    <span className="text-gray-600 text-sm">
-                                                        {key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, " $1")}
-                                                    </span>
-                                                    <p className="font-medium text-gray-900">{value}</p>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </>
-                                )}
-                            </div>
-
-                            {/* right column */}
-                            <div>
-                                <h3 className="font-semibold mb-3 text-gray-800">
-                                    Final Test Results
-                                </h3>
-                                <div className="space-y-2">
-                                    <div className="flex justify-between">
-                                        <span className="text-gray-600 text-sm">Test Location</span>
-                                        <p className="font-medium text-gray-900">{report.laboratory}</p>
-                                    </div>
-                                    <div className="flex justify-between">
-                                        <span className="text-gray-600 text-sm">Timestamp</span>
-                                        <p className="font-medium text-gray-900">{report.date}</p>
-                                    </div>
-                                </div>
-
-                                {report.composition && (
-                                    <>
-                                        <h3 className="font-semibold mb-3 text-gray-800 mt-6">
-                                            Metal Composition
-                                        </h3>
-                                        <div className="space-y-2">
-                                            {Object.entries(report.composition).map(([key, val]) => (
-                                                <div className="flex justify-between" key={key}>
-                                                    <span className="text-gray-600 text-sm">
-                                                        {key.charAt(0).toUpperCase() + key.slice(1)}
-                                                    </span>
-                                                    <p
-                                                        className={`font-medium ${key === "gold"
-                                                            ? "text-yellow-700"
-                                                            : key === "silver" || key === "copper"
-                                                                ? "text-yellow-600"
-                                                                : "text-gray-900"
-                                                            }`}
-                                                    >
-                                                        {val.percentage}{val.unit}
-                                                    </p>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </>
-                                )}
-
-                                {report.specifications && (
-                                    <>
-                                        <h3 className="font-semibold mb-3 text-gray-800 mt-6">
-                                            Specifications
-                                        </h3>
-                                        <div className="space-y-2">
-                                            {Object.entries(report.specifications).map(([key, val]) => (
-                                                <div key={key}>
-                                                    <span className="text-gray-600 text-sm">
-                                                        {key.replace(/([A-Z])/g, " $1").replace(/^./, s => s.toUpperCase())}
-                                                    </span>
-                                                    <p className="font-medium text-gray-900">{val}</p>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </>
-                                )}
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Verified banner */}
-                    <div className="bg-green-100 text-green-800 p-4 rounded-lg mb-6 flex items-start gap-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                        <div>
-                            <div className="font-semibold">Verified & Authenticated</div>
-                            <div className="text-sm">Certificate verified on {report.date}</div>
-                        </div>
-                    </div>
-
-                    {/* Download button */}
                     <button
-                        onClick={handleDownloadReport}
-                        disabled={isDownloading}
-                        className="bg-blue-500 hover:bg-blue-600 disabled:bg-gray-300 text-white w-full py-3 rounded-lg font-semibold transition"
+                        onClick={() => navigate('/verify-report')}
+                        className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition"
                     >
-                        {isDownloading ? "Downloading..." : "Download E-Certificate"}
+                        Back to Verify
                     </button>
                 </div>
-            </main>
-        </section>
+            </section>
+        );
+    }
 
+    return (
+        <div className="min-h-screen">
+            <section>
+                <div className="min-h-screen grid md:grid-cols-2">
+
+                    {/* LEFT - IMAGE */}
+                    <div className="min-h-screen bg-green-50 flex items-center justify-center p-12">
+                        {imageSrc ? (
+                            <img
+                                src={imageSrc}
+                                alt={getCertificationTypeLabel(report.type)}
+                                className="w-full h-full object-contain "
+                            />
+                        ) : (
+                            <div className="w-full h-80 bg-gray-200 flex items-center justify-center rounded-xl text-gray-500">
+                                No image uploaded
+                            </div>
+                        )}
+                    </div>
+
+                    {/* RIGHT - DETAILS */}
+                    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 flex items-center p-12">
+                        <div className="w-full max-w-lg mx-auto">
+                            {/* Success Badge */}
+                            <div className="flex justify-center mb-8">
+                                <div className="inline-flex items-center gap-3 bg-green-100 border-2 border-green-500 px-6 py-3 rounded-full shadow-sm mt-12">
+                                    <div className="w-6 h-6 flex items-center justify-center bg-green-500 text-white rounded-full text-sm font-bold">✓</div>
+                                    <span className="text-green-700 font-bold text-base">Successfully Verified</span>
+                                </div>
+                            </div>
+
+                            {/* Title */}
+                            <h1 className="text-4xl font-extrabold text-center text-gray-900 mb-2">Report Verified</h1>
+                            <p className="text-center text-gray-600 mb-10">Your report has been successfully verified and authenticated.</p>
+
+                            {/* Details Card */}
+                            <div className="">
+                                <h3 className="text-lg font-bold text-gray-900 mb-6">Report Details</h3>
+
+                                <div className="space-y-5">
+                                    <div className="pb-5 border-b border-gray-200">
+                                        <p className="text-sm text-gray-600 font-medium mb-1">Report Type</p>
+                                        <p className="text-lg font-semibold text-gray-900">{getCertificationTypeLabel(report.type)}</p>
+                                    </div>
+
+                                    <div className="pb-5 border-b border-gray-200">
+                                        <p className="text-sm text-gray-600 font-medium mb-1">Certification Number</p>
+                                        <p className="text-lg font-semibold text-amber-600">{report.certificationNumber}</p>
+                                    </div>
+
+                                    {report.customerName && (
+                                        <div className="pb-5 border-b border-gray-200">
+                                            <p className="text-sm text-gray-600 font-medium mb-1">Customer Name</p>
+                                            <p className="text-lg font-semibold text-gray-900">{report.customerName}</p>
+                                        </div>
+                                    )}
+
+                                    <div>
+                                        <p className="text-sm text-gray-600 font-medium mb-1">Verification Date</p>
+                                        <p className="text-lg font-semibold text-gray-900">{new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Action Buttons */}
+                            <div className="grid grid-cols-2 gap-3 mt-8">
+                                <button
+                                    onClick={handleDownloadImage}
+                                    disabled={isDownloading || !imageSrc}
+                                    className={`w-full py-3 rounded-lg text-white font-semibold transition ${isDownloading || !imageSrc
+                                        ? 'bg-gray-400 cursor-not-allowed'
+                                        : 'bg-amber-600 hover:bg-amber-700'
+                                        }`}
+                                >
+                                    {isDownloading ? 'Downloading...' : (imageSrc.toLowerCase().endsWith('.pdf') ? 'Download PDF' : 'Download')}
+                                </button>
+                                <button
+                                    onClick={() => navigate('/verify-report')}
+                                    className="w-full py-3 rounded-lg text-amber-600 font-semibold border border-amber-600 hover:bg-amber-50 transition"
+                                >
+                                    Verify Another
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     );
 }
+
+export default ReportVerified;
