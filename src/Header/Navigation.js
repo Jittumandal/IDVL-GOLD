@@ -388,6 +388,12 @@ export default function Navigation() {
                 </div>
                 <div className="p-4 flex-shrink-0">
                   <Link to="/verify-report" className="block text-center rounded border border-green-500 px-3 py-2 text-green-500 hover:bg-green-50" onClick={() => setMenuOpen(false)}>Verify Report</Link>
+                  <Link
+                    to="/login"
+                    className="login block mt-2 text-center rounded border border-green-500 px-3 py-2 text-green-500 hover:bg-green-50"
+                  >
+                    Login
+                  </Link>
                 </div>
               </>
             ) : (

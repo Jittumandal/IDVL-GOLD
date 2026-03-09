@@ -116,7 +116,7 @@ function VerifyReport() {
                                         type="text"
                                         value={certificationNumber}
                                         onChange={(e) => setCertificationNumber(e.target.value.toUpperCase())}
-                                        placeholder="Enter Certification No."
+                                        placeholder="Enter Certification No. LAB-DIA-20260302-0010"
                                         required
                                         className="w-full border border-gray-300 rounded-lg px-4 py-3 bg-white"
                                     />
