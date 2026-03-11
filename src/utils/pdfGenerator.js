@@ -215,17 +215,17 @@ export const generateAndDownloadPDF = (report) => {
           <div class="section-title">SPECIFICATIONS</div>
           <div class="specs-grid">
             ${Object.entries(report.details)
-              .map(
-                ([key, value]) => `
+      .map(
+        ([key, value]) => `
               <div class="spec-item">
                 <div class="spec-label">${key
-                  .charAt(0)
-                  .toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1')}</div>
+            .charAt(0)
+            .toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1')}</div>
                 <div class="spec-value">${value}</div>
               </div>
             `
-              )
-              .join('')}
+      )
+      .join('')}
           </div>
         </div>
 
@@ -283,9 +283,7 @@ export const generatePDFWithCanvas = (report) => {
   const iframe = document.createElement('iframe');
   iframe.style.display = 'none';
   document.body.appendChild(iframe);
-
   const htmlContent = createPDFContent(report);
-  
   iframe.contentDocument.open();
   iframe.contentDocument.write(htmlContent);
   iframe.contentDocument.close();
@@ -457,17 +455,17 @@ const createPDFContent = (report) => {
           <div class="section-title">SPECIFICATIONS</div>
           <div class="specs-grid">
             ${Object.entries(report.details)
-              .map(
-                ([key, value]) => `
+      .map(
+        ([key, value]) => `
               <div class="spec-item">
                 <div class="spec-label">${key
-                  .charAt(0)
-                  .toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1')}</div>
+            .charAt(0)
+            .toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1')}</div>
                 <div class="spec-value">${value}</div>
               </div>
             `
-              )
-              .join('')}
+      )
+      .join('')}
           </div>
         </div>
 
