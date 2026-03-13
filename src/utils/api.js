@@ -1,13 +1,33 @@
 // API Base URL
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+const DEFAULT_ORIGIN =
+  typeof window !== 'undefined' && window.location?.origin
+    ? window.location.origin
+    : 'http://localhost:5000';
+const API_BASE_URL = process.env.REACT_APP_API_URL || `${DEFAULT_ORIGIN}/api`;
+const ADMIN_LOGIN_URL =
+  process.env.REACT_APP_ADMIN_LOGIN_URL || '/api/admin/login.php';
+const REPORT_CREATE_URL =
+  process.env.REACT_APP_REPORT_CREATE_URL || '/api/reports/create.php';
+const REPORT_VERIFY_URL =
+  process.env.REACT_APP_REPORT_VERIFY_URL || '/api/reports/verify.php';
 
-// Verify report by certification number only
-export const verifyReportAPI = async (certificationNumber) => {
+// Verify report by type and certification number
+export const verifyReportAPI = async (input) => {
   try {
-    const params = new URLSearchParams();
-    params.append('certificationNumber', certificationNumber);
+    const payload =
+      typeof input === 'string'
+        ? { certificationNumber: input, reportType: '' }
+        : (input || {});
 
-    const response = await fetch(`${API_BASE_URL}/reports/verify?${params.toString()}`);
+    const params = new URLSearchParams();
+    if (payload.certificationNumber) {
+      params.append('certificationNumber', payload.certificationNumber);
+    }
+    if (payload.reportType) {
+      params.append('reportType', payload.reportType);
+    }
+
+    const response = await fetch(`${REPORT_VERIFY_URL}?${params.toString()}`);
     
     const data = await response.json();
     
@@ -175,7 +195,7 @@ export const submitContactForm = async (contactData) => {
 // Admin login
 export const submitAdminLogin = async (credentials) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/admin/auth/login`, {
+    const response = await fetch(ADMIN_LOGIN_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -196,36 +216,24 @@ export const submitAdminLogin = async (credentials) => {
   }
 };
 
+
 // Create report with image (manual cert number)
 export const createReportWithImage = async (reportData, imageFile) => {
   try {
     const token = localStorage.getItem('adminToken');
     const formData = new FormData();
-    
-    // Upload image first
-    formData.append('image', imageFile);
-    const uploadResponse = await fetch(`${API_BASE_URL}/uploads`, {
-      method: 'POST',
-      body: formData,
-    });
-    
-    const uploadData = await uploadResponse.json();
-    
-    if (!uploadResponse.ok) {
-      throw new Error(uploadData.error || 'Failed to upload image');
-    }
-    
-    // Create report with image path
-    const response = await fetch(`${API_BASE_URL}/reports/create-with-image`, {
+
+    formData.append('type', reportData.type);
+    formData.append('certificationNumber', reportData.certificationNumber);
+    formData.append('customerName', reportData.customerName);
+    formData.append('file', imageFile);
+
+    const response = await fetch(REPORT_CREATE_URL, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
       },
-      body: JSON.stringify({
-        ...reportData,
-        image: uploadData.imagePath,
-      }),
+      body: formData,
     });
 
     const data = await response.json();

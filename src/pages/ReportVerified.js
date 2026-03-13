@@ -10,25 +10,37 @@ function ReportVerified() {
     const [reportData, setReportData] = useState(location.state?.report || null);
     const [fetchError, setFetchError] = useState('');
 
-    const apiBaseUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+    const defaultOrigin =
+        typeof window !== 'undefined' && window.location?.origin
+            ? window.location.origin
+            : 'http://localhost:5000';
+    const apiBaseUrl = process.env.REACT_APP_API_URL || `${defaultOrigin}/api`;
     const assetBaseUrl = apiBaseUrl.replace(/\/api\/?$/, '');
     const report = reportData;
 
-    const imageSrc = report?.image
-        ? report.image.startsWith('http')
-            ? report.image
-            : `${assetBaseUrl}${report.image}`
+    const reportAssetPath = report?.fileUrl || report?.filePath || report?.image || '';
+    const fileSrc = reportAssetPath
+        ? reportAssetPath.startsWith('http')
+            ? reportAssetPath
+            : `${assetBaseUrl}${reportAssetPath}`
         : '';
+    const lowerFileSrc = fileSrc.toLowerCase();
+    const isSecurePdfEndpoint = lowerFileSrc.includes('/api/reports/file.php');
+    const isPdfFile = lowerFileSrc.endsWith('.pdf') || isSecurePdfEndpoint;
 
     useEffect(() => {
         const fetchReportByCert = async () => {
             const params = new URLSearchParams(location.search);
             const certNumber = params.get('certNumber');
+            const reportType = params.get('reportType');
 
             if (!certNumber) return;
 
             try {
-                const result = await verifyReportAPI(certNumber);
+                const result = await verifyReportAPI({
+                    certificationNumber: certNumber,
+                    reportType: reportType || '',
+                });
                 setReportData(result);
             } catch (error) {
                 setFetchError(error.message || 'Report not found.');
@@ -41,12 +53,12 @@ function ReportVerified() {
     }, [location.search, report]);
 
     const handleDownloadImage = async () => {
-        if (!imageSrc) return;
+        if (!fileSrc) return;
 
         setIsDownloading(true);
 
         try {
-            const response = await fetch(imageSrc);
+            const response = await fetch(fileSrc);
             const blob = await response.blob();
             const blobUrl = window.URL.createObjectURL(blob);
             const link = document.createElement('a');
@@ -97,15 +109,23 @@ function ReportVerified() {
 
                     {/* LEFT - IMAGE - Smaller on mobile, full on desktop */}
                     <div className="h-64 md:min-h-screen bg-green-50 flex items-center justify-center p-4 md:p-12 order-2 md:order-1">
-                        {imageSrc ? (
-                            <img
-                                src={imageSrc}
-                                alt={getCertificationTypeLabel(report.type)}
-                                className="w-full h-full object-contain max-w-md"
-                            />
+                        {fileSrc ? (
+                            isPdfFile ? (
+                                <iframe
+                                    src={fileSrc}
+                                    title="Verified Report PDF"
+                                    className="w-full h-full rounded-xl bg-white"
+                                />
+                            ) : (
+                                <img
+                                    src={fileSrc}
+                                    alt={getCertificationTypeLabel(report.type)}
+                                    className="w-full h-full object-contain max-w-md"
+                                />
+                            )
                         ) : (
                             <div className="w-full h-64 md:h-full bg-gray-200 flex items-center justify-center rounded-xl text-gray-500 text-sm md:text-base">
-                                No image uploaded
+                                No report file uploaded
                             </div>
                         )}
                     </div>
@@ -158,13 +178,13 @@ function ReportVerified() {
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3 mt-6 md:mt-8">
                                 <button
                                     onClick={handleDownloadImage}
-                                    disabled={isDownloading || !imageSrc}
-                                    className={`w-full py-2 md:py-3 rounded-lg text-white font-semibold text-sm md:text-base transition ${isDownloading || !imageSrc
+                                    disabled={isDownloading || !fileSrc}
+                                    className={`w-full py-2 md:py-3 rounded-lg text-white font-semibold text-sm md:text-base transition ${isDownloading || !fileSrc
                                         ? 'bg-gray-400 cursor-not-allowed'
                                         : 'bg-amber-600 hover:bg-amber-700'
                                         }`}
                                 >
-                                    {isDownloading ? 'Downloading...' : (imageSrc.toLowerCase().endsWith('.pdf') ? 'Download PDF' : 'Download')}
+                                    {isDownloading ? 'Downloading...' : (isPdfFile ? 'Download PDF' : 'Download')}
                                 </button>
                                 <button
                                     onClick={() => navigate('/verify-report')}

@@ -17,6 +17,7 @@ function VerifyReport() {
 
         try {
             const trimmedCertNumber = certificationNumber.trim();
+            const trimmedReportType = reportType.trim();
 
             if (!trimmedCertNumber) {
                 setError('Please enter a certification number.');
@@ -24,10 +25,23 @@ function VerifyReport() {
                 return;
             }
 
-            const report = await verifyReportAPI(trimmedCertNumber);
+            if (!trimmedReportType) {
+                setError('Please select a report type.');
+                setIsLoading(false);
+                return;
+            }
+
+            const report = await verifyReportAPI({
+                reportType: trimmedReportType,
+                certificationNumber: trimmedCertNumber,
+            });
 
             if (report) {
-                navigate('/report-verified', { state: { report } });
+                const query = new URLSearchParams({
+                    certNumber: trimmedCertNumber,
+                    reportType: trimmedReportType,
+                });
+                navigate(`/report-verified?${query.toString()}`, { state: { report } });
                 setError('');
             }
         } catch (err) {
