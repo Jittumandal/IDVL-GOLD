@@ -16,7 +16,11 @@ function UploadImage() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [lastCreatedReport, setLastCreatedReport] = useState(null);
 
-  const apiBaseUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+  const defaultOrigin =
+    typeof window !== 'undefined' && window.location?.origin
+      ? window.location.origin
+      : 'http://localhost:5000';
+  const apiBaseUrl = process.env.REACT_APP_API_URL || `${defaultOrigin}/api`;
   const assetBaseUrl = apiBaseUrl.replace(/\/api\/?$/, '');
 
   useEffect(() => {
@@ -27,7 +31,25 @@ function UploadImage() {
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files?.[0] || null;
+
+    if (selectedFile) {
+      if (selectedFile.type !== 'application/pdf') {
+        setFile(null);
+        setPreviewUrl('');
+        setStatus({ type: 'error', message: 'Only PDF files are allowed.' });
+        return;
+      }
+
+      if (selectedFile.size > 1024 * 1024) {
+        setFile(null);
+        setPreviewUrl('');
+        setStatus({ type: 'error', message: 'File size must be 1MB or less.' });
+        return;
+      }
+    }
+
     setFile(selectedFile);
+    setStatus({ type: '', message: '' });
 
     if (selectedFile) {
       setPreviewUrl(URL.createObjectURL(selectedFile));
@@ -49,6 +71,7 @@ function UploadImage() {
 
     try {
       setStatus({ type: '', message: 'Uploading...' });
+
 
       const result = await createReportWithImage(
         {
@@ -118,7 +141,7 @@ function UploadImage() {
                   <label className="block text-xs md:text-sm text-gray-700 mb-2">Select File</label>
                   <input
                     type="file"
-                    accept="image/*,application/pdf"
+                    accept="application/pdf"
                     onChange={handleFileChange}
                     className="w-full text-xs md:text-sm"
                     required
@@ -166,6 +189,16 @@ function UploadImage() {
                     <div key={report.id || report.certificationNumber} className="bg-white rounded-lg p-4 md:p-6 shadow-sm border border-gray-200">
                       {report.image && (
                         <img src={report.image.startsWith('http') ? report.image : `${assetBaseUrl}${report.image}`} alt={getCertificationTypeLabel(report.type)} className="w-full h-40 object-cover rounded-lg mb-4 md:mb-6" />
+                      )}
+                      {(report.fileUrl || report.filePath) && (
+                        <a
+                          href={(report.fileUrl || report.filePath).startsWith('http') ? (report.fileUrl || report.filePath) : `${assetBaseUrl}${report.fileUrl || report.filePath}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block mb-4 text-sm text-blue-600 underline"
+                        >
+                          View Uploaded PDF
+                        </a>
                       )}
                       <div className="space-y-3 md:space-y-5">
                         <div className="pb-3 md:pb-5 border-b border-gray-200">

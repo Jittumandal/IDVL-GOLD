@@ -10,35 +10,43 @@ function ReportVerified() {
     const [reportData, setReportData] = useState(location.state?.report || null);
     const [fetchError, setFetchError] = useState('');
 
-    const apiBaseUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+    const defaultOrigin =
+        typeof window !== 'undefined' && window.location?.origin
+            ? window.location.origin
+            : 'http://localhost:3000';
+    const apiBaseUrl =
+        process.env.REACT_APP_API_URL ||
+        (process.env.NODE_ENV === 'development'
+            ? 'http://localhost:5000/api'
+            : `${defaultOrigin}/api`);
     const assetBaseUrl = apiBaseUrl.replace(/\/api\/?$/, '');
     const report = reportData;
 
-    const documentSrc = report?.image
-        ? report.image.startsWith('http')
-            ? report.image
-            : `${assetBaseUrl}${report.image}`
+    const fileSrc = report?.image || report?.imageUrl || report?.fileUrl || '';
+    const mediaSrc = fileSrc
+        ? fileSrc.startsWith('http')
+            ? fileSrc
+            : `${assetBaseUrl}${fileSrc}`
         : '';
 
-    const isPDF = documentSrc && (
-        documentSrc.toLowerCase().endsWith('.pdf') ||
-        documentSrc.includes('application/pdf')
-    );
+    const lowerMediaSrc = mediaSrc.toLowerCase();
+    const isPDF = !!lowerMediaSrc.match(/\.pdf($|\?)/i);
+    const isImage = !!lowerMediaSrc.match(/\.(jpg|jpeg|png|webp|gif)$/i);
 
-    const isImage = documentSrc && (
-        documentSrc.toLowerCase().match(/\.(jpg|jpeg|png|webp|gif)$/i) ||
-        documentSrc.includes('image/')
-    );
 
     useEffect(() => {
         const fetchReportByCert = async () => {
             const params = new URLSearchParams(location.search);
             const certNumber = params.get('certNumber');
+            const reportType = params.get('reportType');
 
             if (!certNumber) return;
 
             try {
-                const result = await verifyReportAPI(certNumber);
+                const result = await verifyReportAPI({
+                    certificationNumber: certNumber,
+                    reportType: reportType || '',
+                });
                 setReportData(result);
             } catch (error) {
                 setFetchError(error.message || 'Report not found.');
@@ -50,20 +58,23 @@ function ReportVerified() {
         }
     }, [location.search, report]);
 
-    const handleDownloadDocument = async () => {
-        if (!documentSrc) return;
+    const handleDownloadFile = async () => {
+        if (!mediaSrc) return;
 
         setIsDownloading(true);
 
         try {
-            const response = await fetch(documentSrc);
+            const response = await fetch(mediaSrc);
+            if (!response.ok) {
+                throw new Error(`Download failed with status ${response.status}`);
+            }
+
             const blob = await response.blob();
             const blobUrl = window.URL.createObjectURL(blob);
             const link = document.createElement('a');
 
-            // Determine extension from MIME type or URL
             let extension = 'bin';
-            if (blob.type.includes('pdf') || documentSrc.toLowerCase().includes('.pdf')) {
+            if (blob.type.includes('pdf') || mediaSrc.toLowerCase().includes('.pdf')) {
                 extension = 'pdf';
             } else if (blob.type.includes('png')) {
                 extension = 'png';
@@ -111,36 +122,49 @@ function ReportVerified() {
             <section className='reportshowcase'>
                 <div className="min-h-screen grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-0">
 
-                    {/* LEFT - DOCUMENT (PDF/IMAGE) - Full height on desktop */}
-                    <div className="h-96 md:min-h-screen bg-gray-100 flex items-center justify-center p-2 md:p-4 order-2 md:order-1 rounded-lg md:rounded-none">
-                        {documentSrc ? (
-                            <div className="w-full h-full flex items-center justify-center bg-white rounded-lg md:rounded-none">
-                                {isPDF ? (
-                                    <div className="w-full h-full flex flex-col items-center justify-center">
-                                        {/* PDF Viewer using iframe */}
-                                        <iframe
-                                            src={`${documentSrc}#toolbar=1&navpanes=0&scrollbar=1`}
-                                            className="w-full h-full border-0 rounded-lg md:rounded-none"
-                                            title={`${report.certificationNumber} - Certificate PDF`}
-                                        />
+                    {/* LEFT - FILE PREVIEW - Smaller on mobile, full on desktop */}
+                    <div className="h-64 md:min-h-screen bg-green-50 flex items-center justify-center p-4 md:p-12 order-2 md:order-1">
+                        {mediaSrc ? (
+                            isImage ? (
+                                <img
+                                    src={mediaSrc}
+                                    alt={getCertificationTypeLabel(report.type)}
+                                    className="w-full h-full object-contain max-w-md"
+                                />
+                            ) : isPDF ? (
+                                <object
+                                    data={mediaSrc}
+                                    type="application/pdf"
+                                    className="w-full h-full rounded-xl border overflow-hidden"
+                                >
+                                    <div className="flex flex-col items-center justify-center h-full text-center p-4">
+                                        <p className="font-semibold text-gray-900 mb-2">PDF Preview</p>
+                                        <a
+                                            href={mediaSrc}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-amber-600 underline"
+                                        >
+                                            Open PDF in new tab
+                                        </a>
                                     </div>
-                                ) : isImage ? (
-                                    <img
-                                        src={documentSrc}
-                                        alt={getCertificationTypeLabel(report.type)}
-                                        className="w-full h-full object-contain max-w-full"
-                                    />
-                                ) : (
-                                    <div className="flex flex-col items-center justify-center gap-3">
-                                        <div className="text-gray-400 text-lg">📄</div>
-                                        <p className="text-gray-500 text-center text-sm">File Type Not Supported</p>
-                                    </div>
-                                )}
-                            </div>
+                                </object>
+                            ) : (
+                                <div className="w-full h-64 md:h-full bg-gray-200 flex flex-col items-center justify-center rounded-xl text-gray-500 text-sm md:text-base">
+                                    <p className="mb-3">Preview not available for this file type.</p>
+                                    <a
+                                        href={mediaSrc}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-amber-600 underline"
+                                    >
+                                        Open file
+                                    </a>
+                                </div>
+                            )
                         ) : (
-                            <div className="w-full h-full bg-gray-200 flex flex-col items-center justify-center rounded-lg md:rounded-none text-gray-500 gap-3">
-                                <div className="text-4xl">📋</div>
-                                <p className="text-sm md:text-base">No document uploaded</p>
+                            <div className="w-full h-64 md:h-full bg-gray-200 flex items-center justify-center rounded-xl text-gray-500 text-sm md:text-base">
+                                No file uploaded
                             </div>
                         )}
                     </div>
@@ -205,14 +229,13 @@ function ReportVerified() {
                             {/* Action Buttons */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3 mb-4">
                                 <button
-                                    onClick={handleDownloadDocument}
-                                    disabled={isDownloading || !documentSrc}
-                                    className={`w-full py-2 md:py-2.5 lg:py-3 px-3 md:px-4 rounded-lg text-white font-semibold text-xs md:text-sm lg:text-base transition flex items-center justify-center gap-2 ${isDownloading || !documentSrc
+                                    onClick={handleDownloadFile}
+                                    disabled={isDownloading || !mediaSrc}
+                                    className={`w-full py-2 md:py-3 rounded-lg text-white font-semibold text-sm md:text-base transition ${isDownloading || !mediaSrc
                                         ? 'bg-gray-400 cursor-not-allowed'
                                         : 'bg-amber-600 hover:bg-amber-700 active:scale-95'
                                         }`}
                                 >
-                                    <span>{isDownloading ? '⏳' : '⬇️'}</span>
                                     {isDownloading ? 'Downloading...' : (isPDF ? 'Download PDF' : 'Download')}
                                 </button>
                                 <button

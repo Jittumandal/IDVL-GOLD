@@ -1,14 +1,38 @@
 // API Base URL
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+const DEFAULT_ORIGIN =
+  typeof window !== 'undefined' && window.location?.origin
+    ? window.location.origin
+    : 'http://localhost:3000';
+const DEFAULT_API_URL =
+  process.env.NODE_ENV === 'development' &&
+    typeof window !== 'undefined' &&
+    window.location.hostname === 'localhost' &&
+    window.location.port === '3000'
+    ? 'http://localhost:5000/api'
+    : `${DEFAULT_ORIGIN}/api`;
+const API_BASE_URL = process.env.REACT_APP_API_URL || DEFAULT_API_URL;
+const ADMIN_LOGIN_URL =
+  process.env.REACT_APP_ADMIN_LOGIN_URL || `${API_BASE_URL}/admin/auth/login`;
+const REPORT_VERIFY_URL =
+  process.env.REACT_APP_REPORT_VERIFY_URL || `${API_BASE_URL}/reports/verify`;
 
-// Verify report by certification number only
-export const verifyReportAPI = async (certificationNumber) => {
+// Verify report by type and certification number
+export const verifyReportAPI = async (input) => {
   try {
+    const payload =
+      typeof input === 'string'
+        ? { certificationNumber: input, reportType: '' }
+        : (input || {});
+
     const params = new URLSearchParams();
-    params.append('certificationNumber', certificationNumber);
+    if (payload.certificationNumber) {
+      params.append('certificationNumber', payload.certificationNumber);
+    }
+    if (payload.reportType) {
+      params.append('reportType', payload.reportType);
+    }
 
-    const response = await fetch(`${API_BASE_URL}/reports/verify?${params.toString()}`);
-
+    const response = await fetch(`${REPORT_VERIFY_URL}?${params.toString()}`);
     const data = await response.json();
 
     if (!response.ok) {
@@ -177,7 +201,7 @@ export const submitAdminLogin = async (credentials) => {
   try {
     console.log('[LOGIN] Attempting login for:', credentials.email);
 
-    const response = await fetch(`${API_BASE_URL}/admin/auth/login`, {
+    const response = await fetch(ADMIN_LOGIN_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -202,6 +226,7 @@ export const submitAdminLogin = async (credentials) => {
     throw error;
   }
 };
+
 
 // Create report with image (manual cert number)
 export const createReportWithImage = async (reportData, imageFile) => {
