@@ -8,13 +8,13 @@ export const verifyReportAPI = async (certificationNumber) => {
     params.append('certificationNumber', certificationNumber);
 
     const response = await fetch(`${API_BASE_URL}/reports/verify?${params.toString()}`);
-    
+
     const data = await response.json();
-    
+
     if (!response.ok) {
       throw new Error(data.error || 'Failed to verify report');
     }
-    
+
     return data; // Return the report data directly (not data.data)
   } catch (error) {
     console.error('API Error:', error);
@@ -27,11 +27,11 @@ export const getAllReports = async () => {
   try {
     const response = await fetch(`${API_BASE_URL}/reports`);
     const data = await response.json();
-    
+
     if (!response.ok) {
       throw new Error(data.error || 'Failed to fetch reports');
     }
-    
+
     return data;
   } catch (error) {
     console.error('API Error:', error);
@@ -44,11 +44,11 @@ export const getReportById = async (id) => {
   try {
     const response = await fetch(`${API_BASE_URL}/reports/${id}`);
     const data = await response.json();
-    
+
     if (!response.ok) {
       throw new Error(data.error || 'Failed to fetch report');
     }
-    
+
     return data;
   } catch (error) {
     console.error('API Error:', error);
@@ -66,13 +66,13 @@ export const createReport = async (reportData) => {
       },
       body: JSON.stringify(reportData),
     });
-    
+
     const data = await response.json();
-    
+
     if (!response.ok) {
       throw new Error(data.error || 'Failed to create report');
     }
-    
+
     return data;
   } catch (error) {
     console.error('API Error:', error);
@@ -90,13 +90,13 @@ export const updateReport = async (id, reportData) => {
       },
       body: JSON.stringify(reportData),
     });
-    
+
     const data = await response.json();
-    
+
     if (!response.ok) {
       throw new Error(data.error || 'Failed to update report');
     }
-    
+
     return data;
   } catch (error) {
     console.error('API Error:', error);
@@ -134,13 +134,13 @@ export const deleteReport = async (id) => {
     const response = await fetch(`${API_BASE_URL}/reports/${id}`, {
       method: 'DELETE',
     });
-    
+
     const data = await response.json();
-    
+
     if (!response.ok) {
       throw new Error(data.error || 'Failed to delete report');
     }
-    
+
     return data;
   } catch (error) {
     console.error('API Error:', error);
@@ -175,6 +175,8 @@ export const submitContactForm = async (contactData) => {
 // Admin login
 export const submitAdminLogin = async (credentials) => {
   try {
+    console.log('[LOGIN] Attempting login for:', credentials.email);
+
     const response = await fetch(`${API_BASE_URL}/admin/auth/login`, {
       method: 'POST',
       headers: {
@@ -186,12 +188,17 @@ export const submitAdminLogin = async (credentials) => {
     const data = await response.json();
 
     if (!response.ok) {
+      console.log('[LOGIN] Failed with status:', response.status);
       throw new Error(data.error || 'Failed to login');
     }
 
+    console.log('[LOGIN] Success! Token received');
+    console.log('[LOGIN] Token length:', data.token ? data.token.length : 'No token');
+    console.log('[LOGIN] Token starts with:', data.token ? data.token.substring(0, 20) + '...' : 'No token');
+
     return data;
   } catch (error) {
-    console.error('API Error:', error);
+    console.error('[LOGIN] API Error:', error);
     throw error;
   }
 };
@@ -200,40 +207,77 @@ export const submitAdminLogin = async (credentials) => {
 export const createReportWithImage = async (reportData, imageFile) => {
   try {
     const token = localStorage.getItem('adminToken');
+
+    if (!token) {
+      throw new Error('Admin authentication required. Please log in again.');
+    }
+
+    console.log('[UPLOAD] Token found in localStorage');
+    console.log('[UPLOAD] Token length:', token.length);
+    console.log('[UPLOAD] Token starts with:', token.substring(0, 20) + '...');
+
+    if (!imageFile) {
+      throw new Error('Image file is required');
+    }
+
     const formData = new FormData();
-    
-    // Upload image first
     formData.append('image', imageFile);
+
+    // Upload image first
     const uploadResponse = await fetch(`${API_BASE_URL}/uploads`, {
       method: 'POST',
       body: formData,
     });
-    
-    const uploadData = await uploadResponse.json();
-    
-    if (!uploadResponse.ok) {
-      throw new Error(uploadData.error || 'Failed to upload image');
+
+    let uploadData;
+    try {
+      uploadData = await uploadResponse.json();
+    } catch (e) {
+      throw new Error(`Upload failed: Invalid response from server (${uploadResponse.status})`);
     }
-    
+
+    if (!uploadResponse.ok) {
+      throw new Error(uploadData.error || `Upload failed with status ${uploadResponse.status}`);
+    }
+
+    if (!uploadData.imagePath) {
+      throw new Error('Image upload successful but no path returned');
+    }
+
+    console.log('[UPLOAD] Image uploaded successfully:', uploadData.imagePath);
+
     // Create report with image path
+    const reportPayload = {
+      ...reportData,
+      image: uploadData.imagePath,
+    };
+
+    console.log('[CREATE-REPORT] Sending request with Authorization header');
+    console.log('[CREATE-REPORT] Report payload:', reportPayload);
+
     const response = await fetch(`${API_BASE_URL}/reports/create-with-image`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
       },
-      body: JSON.stringify({
-        ...reportData,
-        image: uploadData.imagePath,
-      }),
+      body: JSON.stringify(reportPayload),
     });
 
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.error || 'Failed to create report');
+    let data;
+    try {
+      data = await response.json();
+    } catch (e) {
+      throw new Error(`Server error: Invalid response (${response.status})`);
     }
 
+    if (!response.ok) {
+      console.log('[CREATE-REPORT] Request failed with status:', response.status);
+      console.log('[CREATE-REPORT] Error response:', data);
+      throw new Error(data.error || `Failed to create report with status ${response.status}`);
+    }
+
+    console.log('[CREATE-REPORT] Report created successfully');
     return data;
   } catch (error) {
     console.error('API Error:', error);

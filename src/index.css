@@ -345,3 +345,7 @@ header {
 .login:hover {
     color: #b45309;
 }
+
+.reportshowcase {
+    margin-top: 80px;
+}

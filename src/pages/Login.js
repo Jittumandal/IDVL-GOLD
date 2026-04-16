@@ -25,18 +25,28 @@ function Login() {
         }
 
         try {
+            console.log('[LOGIN-PAGE] Submitting login form');
             const result = await submitAdminLogin({ email, password });
+            console.log('[LOGIN-PAGE] Login successful, received result:', result);
             setSuccess(`Welcome ${result.admin?.name || "Admin"}!`);
 
             if (result.token) {
+                console.log('[LOGIN-PAGE] Token found in result, storing...');
                 setAdminToken(result.token);
+                console.log('[LOGIN-PAGE] Token stored, verifying...');
+                const storedToken = localStorage.getItem('adminToken');
+                console.log('[LOGIN-PAGE] Verification - Token in localStorage:', storedToken ? 'YES' : 'NO');
                 // notify other components in this tab
                 try { window.dispatchEvent(new Event('admin-login')); } catch { }
                 setTimeout(() => {
                     navigate("/upload-image");
                 }, 400);
+            } else {
+                console.log('[LOGIN-PAGE] Warning: No token in response');
+                setError("Login succeeded but no token received");
             }
         } catch (err) {
+            console.log('[LOGIN-PAGE] Login error:', err.message);
             setError(err.message || "Invalid credentials.");
         } finally {
             setIsLoading(false);

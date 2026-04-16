@@ -23,7 +23,7 @@ const blocks = [
     ]
   },
   { type: 'image', img: '/images/engagement-ring.png' },
-  { type: 'image', img: '/images/diamondcut.png' },
+  { type: 'image', img: '/images/GemIdentificationReport.jpg' },
   {
     type: 'text', title: "Diamond Cut",
     paragraphs: [

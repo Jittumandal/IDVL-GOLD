@@ -9,7 +9,10 @@ const router = express.Router();
 const signToken = (admin) => {
   const payload = { id: admin.id, email: admin.email, role: admin.role };
   const secret = process.env.JWT_SECRET || 'change-this-secret';
-  return jwt.sign(payload, secret, { expiresIn: '1d' });
+  const token = jwt.sign(payload, secret, { expiresIn: '24h' });
+  console.log('[TOKEN] Generated token for:', admin.email);
+  console.log('[TOKEN] Secret being used:', secret ? 'Set from .env' : 'Using default');
+  return token;
 };
 
 // POST /api/admin/auth/register (create admin)

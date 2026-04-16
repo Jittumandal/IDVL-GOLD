@@ -18,10 +18,18 @@ export const getAdminToken = () => {
 };
 
 export const setAdminToken = (token) => {
-  localStorage.setItem('adminToken', token);
+  console.log('[AUTH-UTIL] Setting admin token in localStorage');
+  console.log('[AUTH-UTIL] Token length:', token ? token.length : 'No token');
+  if (token) {
+    localStorage.setItem('adminToken', token);
+    console.log('[AUTH-UTIL] Token stored successfully');
+  } else {
+    console.log('[AUTH-UTIL] Warning: Attempting to set empty token');
+  }
 };
 
 export const removeAdminToken = () => {
+  console.log('[AUTH-UTIL] Removing admin token from localStorage');
   localStorage.removeItem('adminToken');
 };
 

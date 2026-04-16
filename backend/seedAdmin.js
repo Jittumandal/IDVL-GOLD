@@ -5,8 +5,8 @@ const bcrypt = require('bcryptjs');
 const { sequelize } = require('./config/database');
 const Admin = require('./models/Admin');
 
-const ADMIN_EMAIL = 'jitendrakumar.designer@gmail.com';
-const ADMIN_PASSWORD = 'admin@123!';
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'jitendrakumar.designer@gmail.com';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin@123!';
 const ADMIN_NAME = 'Jitendra Kumar';
 
 const seedAdmin = async () => {

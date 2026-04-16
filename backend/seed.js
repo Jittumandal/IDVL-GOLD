@@ -17,7 +17,7 @@ const seedData = async () => {
     // Sample data
     const reports = [
       {
-        type: 'XRF Gold Testing Certificate',
+        type: 'goldTesting',
         certificationNumber: '5152',
         image: 'https://via.placeholder.com/300x400?text=Certificate+5152',
         laboratory: 'IDVL Testing Laboratory',
@@ -35,7 +35,7 @@ const seedData = async () => {
         details: {},
       },
       {
-        type: 'XRF Gold Testing Certificate',
+        type: 'goldTesting',
         certificationNumber: '5153',
         image: 'https://via.placeholder.com/300x400?text=Certificate+5153',
         laboratory: 'IDVL Testing Laboratory',
@@ -53,7 +53,7 @@ const seedData = async () => {
         details: {},
       },
       {
-        type: 'XRF Gold Testing Certificate',
+        type: 'goldTesting',
         certificationNumber: '5154',
         image: 'https://via.placeholder.com/300x400?text=Certificate+5154',
         laboratory: 'IDVL Testing Laboratory',
@@ -71,7 +71,7 @@ const seedData = async () => {
         details: {},
       },
       {
-        type: 'XRF Gold Testing Certificate',
+        type: 'goldTesting',
         certificationNumber: '5155',
         image: 'https://via.placeholder.com/300x400?text=Certificate+5155',
         laboratory: 'IDVL Testing Laboratory',
@@ -89,7 +89,7 @@ const seedData = async () => {
         details: {},
       },
       {
-        type: 'XRF Gold Testing Certificate',
+        type: 'goldTesting',
         certificationNumber: '5156',
         image: 'https://via.placeholder.com/300x400?text=Certificate+5156',
         laboratory: 'IDVL Testing Laboratory',
