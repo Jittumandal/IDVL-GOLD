@@ -1,16 +1,15 @@
 // API Base URL
+const isDevelopment = process.env.NODE_ENV === 'development';
 const DEFAULT_ORIGIN =
   typeof window !== 'undefined' && window.location?.origin
     ? window.location.origin
-    : 'http://localhost:3000';
+    : isDevelopment
+      ? 'http://localhost:3000'
+      : 'https://idvl.in';
 const DEFAULT_API_URL =
-  process.env.NODE_ENV === 'development' &&
-    typeof window !== 'undefined' &&
-    window.location.hostname === 'localhost' &&
-    window.location.port === '3000'
-    ? 'http://localhost:5000/api'
-    : `${DEFAULT_ORIGIN}/api`;
-const API_BASE_URL = process.env.REACT_APP_API_URL || DEFAULT_API_URL;
+  process.env.REACT_APP_API_URL ||
+  (isDevelopment ? 'http://localhost:5000/api' : `${DEFAULT_ORIGIN}/api`);
+const API_BASE_URL = DEFAULT_API_URL;
 const ADMIN_LOGIN_URL =
   process.env.REACT_APP_ADMIN_LOGIN_URL || `${API_BASE_URL}/admin/auth/login`;
 const REPORT_VERIFY_URL =
